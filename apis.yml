@@ -1,0 +1,127 @@
+aid: limitless-ai
+url: https://raw.githubusercontent.com/api-evangelist/limitless-ai/refs/heads/main/apis.yml
+name: Limitless
+kind: company
+description: >-
+  Limitless is a personalized AI for meetings with a software assistant and the
+  Limitless Pendant wearable that captures conversations as Lifelogs. The
+  Limitless Developer API gives users programmatic access to their own
+  Lifelogs, Ask AI chat history, and audio downloads, with an MCP endpoint
+  that lets Claude and other MCP-compatible tools query Limitless memory
+  directly. The OpenAPI spec is published and example code is hosted on
+  GitHub.
+image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+tags:
+  - AI
+  - Wearable
+  - Pendant
+  - Meeting Notes
+  - Lifelogs
+  - Personal AI
+  - API
+  - MCP
+  - OpenAPI
+created: '2026-05-23'
+modified: '2026-05-23'
+specificationVersion: '0.19'
+apis:
+  - aid: limitless-ai:pendant
+    name: Limitless Pendant
+    description: >-
+      Wearable AI pendant that captures ambient audio, transcribes it, and
+      stores it as Lifelogs in the user's Limitless account.
+    image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    humanURL: https://www.limitless.ai/
+    baseURL: https://www.limitless.ai
+    tags:
+      - Hardware
+      - Wearable
+      - Pendant
+      - Lifelogs
+    properties:
+      - type: ProductPage
+        url: https://www.limitless.ai/
+  - aid: limitless-ai:meeting-assistant
+    name: Limitless Meeting Assistant
+    description: >-
+      Software assistant for meetings — transcripts, summaries, and Ask AI
+      chat over personal memory. Available across desktop and mobile.
+    image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    humanURL: https://www.limitless.ai/
+    baseURL: https://www.limitless.ai
+    tags:
+      - Meetings
+      - Assistant
+      - Transcripts
+      - Ask AI
+    properties:
+      - type: ProductPage
+        url: https://www.limitless.ai/
+  - aid: limitless-ai:developer-api
+    name: Limitless Developer API
+    description: >-
+      REST API at https://api.limitless.ai/v1 for the authenticated user's
+      Lifelogs and Ask AI chat history. Authentication is the `X-API-Key`
+      header with a key generated in Developer settings. Endpoints include
+      GET /lifelogs (search, sort, paginate), GET /lifelogs/{id}, DELETE
+      /lifelogs/{id}, GET /download-audio (Ogg Opus, max 2-hour duration),
+      GET /chats, GET /chats/{id}, and DELETE /chats/{id}. Rate limit is 180
+      requests per minute per API key. OpenAPI spec is published at
+      /openapi.yml and example code lives on GitHub.
+    image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    humanURL: https://www.limitless.ai/developers
+    baseURL: https://api.limitless.ai/v1
+    tags:
+      - REST
+      - API Key
+      - Lifelogs
+      - Audio
+      - Chats
+      - OpenAPI
+    properties:
+      - type: Documentation
+        url: https://www.limitless.ai/developers
+      - type: OpenAPI
+        url: https://api.limitless.ai/v1/openapi.yml
+      - type: Examples
+        url: https://github.com/limitless-ai-inc/limitless-api-examples
+      - type: GitHubOrg
+        url: https://github.com/limitless-ai-inc
+  - aid: limitless-ai:mcp-server
+    name: Limitless MCP Server
+    description: >-
+      Hosted Model Context Protocol endpoint that connects Claude and other
+      MCP-compatible clients to the user's Limitless memory.
+    image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    humanURL: https://www.limitless.ai/developers
+    baseURL: https://api.limitless.ai/mcp
+    tags:
+      - MCP
+      - Model Context Protocol
+      - Claude
+      - Memory
+    properties:
+      - type: Documentation
+        url: https://www.limitless.ai/developers
+      - type: Endpoint
+        url: https://api.limitless.ai/mcp
+common:
+  - type: LinkedIn
+    url: https://www.linkedin.com/company/limitless-ai
+  - type: Website
+    url: https://www.limitless.ai/
+  - type: Developers
+    url: https://www.limitless.ai/developers
+  - type: GitHub
+    url: https://github.com/limitless-ai-inc
+  - type: OpenAPI
+    url: https://api.limitless.ai/v1/openapi.yml
+  - type: Plans
+    url: plans/limitless-ai-plans-pricing.yml
+  - type: RateLimits
+    url: rate-limits/limitless-ai-rate-limits.yml
+  - type: FinOps
+    url: finops/limitless-ai-finops.yml
+maintainers:
+  - FN: Kin Lane
+    email: kin@apievangelist.com
