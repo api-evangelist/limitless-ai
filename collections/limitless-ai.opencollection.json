@@ -1,0 +1,292 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Limitless Developer API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Redirect to the developer docs.",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "{{baseUrl}}/"
+      },
+      "docs": "Redirects to the developer docs."
+    },
+    {
+      "info": {
+        "name": "Returns a list of lifelogs.",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "{{baseUrl}}/v1/lifelogs",
+        "params": [
+          {
+            "name": "timezone",
+            "value": "",
+            "type": "query",
+            "description": "IANA timezone specifier. If missing, UTC is used."
+          },
+          {
+            "name": "date",
+            "value": "",
+            "type": "query",
+            "description": "Will return all entries beginning on a date in the given timezone (YYYY-MM-DD)."
+          },
+          {
+            "name": "start",
+            "value": "",
+            "type": "query",
+            "description": "Start datetime in modified ISO-8601 format (YYYY-MM-DD or YYYY-MM-DD HH:mm:SS). Timezones/offsets will be ignored."
+          },
+          {
+            "name": "end",
+            "value": "",
+            "type": "query",
+            "description": "End datetime in modified ISO-8601 format (YYYY-MM-DD or YYYY-MM-DD HH:mm:SS). Timezones/offsets will be ignored."
+          },
+          {
+            "name": "cursor",
+            "value": "",
+            "type": "query",
+            "description": "Cursor for pagination to retrieve the next set of entries. Will not work when `search` parameter is provided."
+          },
+          {
+            "name": "direction",
+            "value": "",
+            "type": "query",
+            "description": "Sort direction for entries."
+          },
+          {
+            "name": "includeMarkdown",
+            "value": "",
+            "type": "query",
+            "description": "Whether to include markdown content in the response."
+          },
+          {
+            "name": "includeHeadings",
+            "value": "",
+            "type": "query",
+            "description": "Whether to include headings in the response."
+          },
+          {
+            "name": "isStarred",
+            "value": "",
+            "type": "query",
+            "description": "Filter entries by their starred status."
+          },
+          {
+            "name": "limit",
+            "value": "",
+            "type": "query",
+            "description": "Maximum number of entries to return. Upper limit is 100."
+          },
+          {
+            "name": "includeContents",
+            "value": "",
+            "type": "query",
+            "description": "Whether to include structured contents in the response. When false, the contents array will be empty. Note that contents are automatically excluded when more than 25 results are returned, regardless of this parameter."
+          },
+          {
+            "name": "search",
+            "value": "",
+            "type": "query",
+            "description": "Search query to perform hybrid search across lifelogs. When provided, other filtering parameters are applied as additional constraints. You cannot paginate requests when using this parameter. Upper limit of 100 results. Hybrid search is a combination of keyword search and semantic search; you can therefore send:\n- semantic queries, like \"place bob recommended at dinner\"\n- boolean keyword search, like \"blue OR red\"\n(While \"AND\" queries are supported, sending \"red AND blue\" is the same as sending \"red blue\").\n"
+          }
+        ]
+      },
+      "docs": "Returns a list of lifelogs based on specified time range or date. If a search parameter is provided, performs hybrid search across the lifelogs. Pagination is not supported when using the search parameter."
+    },
+    {
+      "info": {
+        "name": "Returns a single lifelog by ID.",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "{{baseUrl}}/v1/lifelogs/:id",
+        "params": [
+          {
+            "name": "id",
+            "value": "",
+            "type": "path",
+            "description": "Unique identifier of the lifelog to retrieve."
+          },
+          {
+            "name": "timezone",
+            "value": "",
+            "type": "query",
+            "description": "IANA timezone specifier. If missing, UTC is used."
+          },
+          {
+            "name": "includeMarkdown",
+            "value": "",
+            "type": "query",
+            "description": "Whether to include markdown content in the response."
+          },
+          {
+            "name": "includeHeadings",
+            "value": "",
+            "type": "query",
+            "description": "Whether to include headings in the response."
+          },
+          {
+            "name": "includeContents",
+            "value": "",
+            "type": "query",
+            "description": "Whether to include structured contents in the response. When false, the contents array will be empty."
+          }
+        ]
+      },
+      "docs": "Returns a specific lifelog entry by its unique identifier."
+    },
+    {
+      "info": {
+        "name": "Deletes a single lifelog by ID.",
+        "type": "http"
+      },
+      "http": {
+        "method": "DELETE",
+        "url": "{{baseUrl}}/v1/lifelogs/:id",
+        "params": [
+          {
+            "name": "id",
+            "value": "",
+            "type": "path",
+            "description": "Unique identifier of the lifelog to delete."
+          }
+        ]
+      },
+      "docs": "Permanently deletes a specific lifelog entry by its unique identifier."
+    },
+    {
+      "info": {
+        "name": "Returns a list of chats.",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "{{baseUrl}}/v1/chats",
+        "params": [
+          {
+            "name": "cursor",
+            "value": "",
+            "type": "query",
+            "description": "Cursor for pagination to retrieve the next set of chats."
+          },
+          {
+            "name": "direction",
+            "value": "",
+            "type": "query",
+            "description": "Sort direction for chats."
+          },
+          {
+            "name": "limit",
+            "value": "",
+            "type": "query",
+            "description": "Maximum number of chats to return. Upper limit is 100."
+          },
+          {
+            "name": "timezone",
+            "value": "",
+            "type": "query",
+            "description": "IANA timezone specifier. If missing, UTC is used."
+          },
+          {
+            "name": "isScheduled",
+            "value": "",
+            "type": "query",
+            "description": "When true, only return chats generated by scheduled prompts; when false, only non-scheduled chats."
+          },
+          {
+            "name": "globalPromptId",
+            "value": "",
+            "type": "query",
+            "description": "Filter to chats generated by scheduled prompts that match the given globalPromptId (see curated prompts)."
+          }
+        ]
+      },
+      "docs": "Returns a list of chats (ask-ai conversations) for the authenticated user. Pagination is supported."
+    },
+    {
+      "info": {
+        "name": "Returns a single chat by ID.",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "{{baseUrl}}/v1/chats/:id",
+        "params": [
+          {
+            "name": "id",
+            "value": "",
+            "type": "path",
+            "description": "Unique identifier of the chat to retrieve."
+          },
+          {
+            "name": "timezone",
+            "value": "",
+            "type": "query",
+            "description": "IANA timezone specifier. If missing, UTC is used."
+          }
+        ]
+      },
+      "docs": "Returns a specific chat (ask-ai conversation) by its unique identifier. Users can only access their own chats or public chats."
+    },
+    {
+      "info": {
+        "name": "Deletes a single chat by ID.",
+        "type": "http"
+      },
+      "http": {
+        "method": "DELETE",
+        "url": "{{baseUrl}}/v1/chats/:id",
+        "params": [
+          {
+            "name": "id",
+            "value": "",
+            "type": "path",
+            "description": "Unique identifier of the chat to delete."
+          }
+        ]
+      },
+      "docs": "Permanently deletes a specific chat (ask-ai conversation) by its unique identifier. Users can only delete their own chats."
+    },
+    {
+      "info": {
+        "name": "Downloads audio for a specified time range.",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "{{baseUrl}}/v1/download-audio",
+        "params": [
+          {
+            "name": "audioSource",
+            "value": "",
+            "type": "query",
+            "description": "Audio source to download from."
+          },
+          {
+            "name": "startMs",
+            "value": "",
+            "type": "query",
+            "description": "Start time in milliseconds. Must be non-negative and less than endMs."
+          },
+          {
+            "name": "endMs",
+            "value": "",
+            "type": "query",
+            "description": "End time in milliseconds. Must be non-negative and greater than startMs. The duration between startMs and endMs cannot exceed 2 hours (7,200,000 ms)."
+          }
+        ]
+      },
+      "docs": "Downloads audio in Ogg Opus format for a given time range from the specified audio source. The requested time range must be 2 hours (7,200,000 ms) or less."
+    }
+  ],
+  "bundled": true
+}

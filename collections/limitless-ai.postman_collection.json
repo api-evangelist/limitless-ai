@@ -1,0 +1,1841 @@
+{
+  "item": [
+    {
+      "id": "d81d82ff-abd4-467e-8025-d909ec19928d",
+      "name": "Redirect to the developer docs.",
+      "request": {
+        "name": "Redirect to the developer docs.",
+        "description": {
+          "content": "Redirects to the developer docs.",
+          "type": "text/plain"
+        },
+        "url": {
+          "path": [
+            ""
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [],
+          "variable": []
+        },
+        "method": "GET",
+        "auth": null
+      },
+      "response": [
+        {
+          "id": "d8b1c72e-709a-414f-824e-cb099e77ad2c",
+          "name": "Redirect to the developer docs.",
+          "originalRequest": {
+            "url": {
+              "path": [
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "GET",
+            "body": {}
+          },
+          "status": "Found",
+          "code": 302,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "text/plain"
+            }
+          ],
+          "body": "",
+          "cookie": [],
+          "_postman_previewlanguage": "text"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    },
+    {
+      "id": "465cb36c-4b2c-4aca-a057-9a3a3caf8a1c",
+      "name": "Returns a list of lifelogs.",
+      "request": {
+        "name": "Returns a list of lifelogs.",
+        "description": {
+          "content": "Returns a list of lifelogs based on specified time range or date. If a search parameter is provided, performs hybrid search across the lifelogs. Pagination is not supported when using the search parameter.",
+          "type": "text/plain"
+        },
+        "url": {
+          "path": [
+            "v1",
+            "lifelogs"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [
+            {
+              "disabled": false,
+              "key": "timezone",
+              "value": "<string>",
+              "description": "IANA timezone specifier. If missing, UTC is used."
+            },
+            {
+              "disabled": false,
+              "key": "date",
+              "value": "<date>",
+              "description": "Will return all entries beginning on a date in the given timezone (YYYY-MM-DD)."
+            },
+            {
+              "disabled": false,
+              "key": "start",
+              "value": "<dateTime>",
+              "description": "Start datetime in modified ISO-8601 format (YYYY-MM-DD or YYYY-MM-DD HH:mm:SS). Timezones/offsets will be ignored."
+            },
+            {
+              "disabled": false,
+              "key": "end",
+              "value": "<dateTime>",
+              "description": "End datetime in modified ISO-8601 format (YYYY-MM-DD or YYYY-MM-DD HH:mm:SS). Timezones/offsets will be ignored."
+            },
+            {
+              "disabled": false,
+              "key": "cursor",
+              "value": "<string>",
+              "description": "Cursor for pagination to retrieve the next set of entries. Will not work when `search` parameter is provided."
+            },
+            {
+              "disabled": false,
+              "key": "direction",
+              "value": "desc",
+              "description": "Sort direction for entries."
+            },
+            {
+              "disabled": false,
+              "key": "includeMarkdown",
+              "value": "true",
+              "description": "Whether to include markdown content in the response."
+            },
+            {
+              "disabled": false,
+              "key": "includeHeadings",
+              "value": "true",
+              "description": "Whether to include headings in the response."
+            },
+            {
+              "disabled": false,
+              "key": "isStarred",
+              "value": "<boolean>",
+              "description": "Filter entries by their starred status."
+            },
+            {
+              "disabled": false,
+              "key": "limit",
+              "value": "<integer>",
+              "description": "Maximum number of entries to return. Upper limit is 100."
+            },
+            {
+              "disabled": false,
+              "key": "includeContents",
+              "value": "true",
+              "description": "Whether to include structured contents in the response. When false, the contents array will be empty. Note that contents are automatically excluded when more than 25 results are returned, regardless of this parameter."
+            },
+            {
+              "disabled": false,
+              "key": "search",
+              "value": "<string>",
+              "description": "Search query to perform hybrid search across lifelogs. When provided, other filtering parameters are applied as additional constraints. You cannot paginate requests when using this parameter. Upper limit of 100 results. Hybrid search is a combination of keyword search and semantic search; you can therefore send:\n- semantic queries, like \"place bob recommended at dinner\"\n- boolean keyword search, like \"blue OR red\"\n(While \"AND\" queries are supported, sending \"red AND blue\" is the same as sending \"red blue\").\n"
+            }
+          ],
+          "variable": []
+        },
+        "header": [
+          {
+            "key": "Accept",
+            "value": "*/*"
+          }
+        ],
+        "method": "GET",
+        "auth": null
+      },
+      "response": [
+        {
+          "id": "8bb24f0e-c68b-4f0f-b231-6a942edc70e8",
+          "name": "Successful response with entries.",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "v1",
+                "lifelogs"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "key": "timezone",
+                  "value": "<string>"
+                },
+                {
+                  "key": "date",
+                  "value": "<date>"
+                },
+                {
+                  "key": "start",
+                  "value": "<dateTime>"
+                },
+                {
+                  "key": "end",
+                  "value": "<dateTime>"
+                },
+                {
+                  "key": "cursor",
+                  "value": "<string>"
+                },
+                {
+                  "key": "direction",
+                  "value": "desc"
+                },
+                {
+                  "key": "includeMarkdown",
+                  "value": "true"
+                },
+                {
+                  "key": "includeHeadings",
+                  "value": "true"
+                },
+                {
+                  "key": "isStarred",
+                  "value": "<boolean>"
+                },
+                {
+                  "key": "limit",
+                  "value": "<integer>"
+                },
+                {
+                  "key": "includeContents",
+                  "value": "true"
+                },
+                {
+                  "key": "search",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "*/*"
+              }
+            ],
+            "method": "GET",
+            "body": {}
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "*/*"
+            }
+          ],
+          "body": "{\n  \"data\": {\n    \"lifelogs\": [\n      {\n        \"id\": \"string\",\n        \"title\": \"string\",\n        \"markdown\": \"string\",\n        \"contents\": [\n          {\n            \"type\": \"string\",\n            \"content\": \"string\",\n            \"startTime\": \"2003-12-26T20:48:39.525Z\",\n            \"endTime\": \"1995-02-12T18:58:12.816Z\",\n            \"startOffsetMs\": 2640,\n            \"endOffsetMs\": 1597,\n            \"children\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"speakerName\": \"string\",\n            \"speakerIdentifier\": \"user\"\n          },\n          {\n            \"type\": \"string\",\n            \"content\": \"string\",\n            \"startTime\": \"1977-10-21T17:07:26.433Z\",\n            \"endTime\": \"1984-10-16T02:22:02.442Z\",\n            \"startOffsetMs\": 366,\n            \"endOffsetMs\": 1913,\n            \"children\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"speakerName\": \"string\",\n            \"speakerIdentifier\": \"user\"\n          }\n        ],\n        \"startTime\": \"1968-11-27T23:00:09.807Z\",\n        \"endTime\": \"1984-08-15T10:17:13.456Z\",\n        \"isStarred\": true,\n        \"updatedAt\": \"1986-02-21T13:27:02.185Z\"\n      },\n      {\n        \"id\": \"string\",\n        \"title\": \"string\",\n        \"markdown\": \"string\",\n        \"contents\": [\n          {\n            \"type\": \"string\",\n            \"content\": \"string\",\n            \"startTime\": \"1960-04-07T18:17:48.007Z\",\n            \"endTime\": \"1983-09-29T11:03:59.601Z\",\n            \"startOffsetMs\": 8231,\n            \"endOffsetMs\": 253,\n            \"children\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"speakerName\": \"string\",\n            \"speakerIdentifier\": \"user\"\n          },\n          {\n            \"type\": \"string\",\n            \"content\": \"string\",\n            \"startTime\": \"2004-08-13T10:09:09.385Z\",\n            \"endTime\": \"1959-08-12T05:47:49.576Z\",\n            \"startOffsetMs\": 4395,\n            \"endOffsetMs\": 2241,\n            \"children\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"speakerName\": \"string\",\n            \"speakerIdentifier\": \"user\"\n          }\n        ],\n        \"startTime\": \"1984-05-06T09:55:57.955Z\",\n        \"endTime\": \"1977-06-19T15:22:02.310Z\",\n        \"isStarred\": false,\n        \"updatedAt\": \"2024-06-11T01:07:55.526Z\"\n      }\n    ]\n  },\n  \"meta\": {\n    \"lifelogs\": {\n      \"nextCursor\": \"string\",\n      \"count\": 9346\n    }\n  }\n}",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        },
+        {
+          "id": "e74e23af-5957-4af7-9cd6-4373ec308738",
+          "name": "Too Many Requests - Rate limit exceeded.",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "v1",
+                "lifelogs"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "key": "timezone",
+                  "value": "<string>"
+                },
+                {
+                  "key": "date",
+                  "value": "<date>"
+                },
+                {
+                  "key": "start",
+                  "value": "<dateTime>"
+                },
+                {
+                  "key": "end",
+                  "value": "<dateTime>"
+                },
+                {
+                  "key": "cursor",
+                  "value": "<string>"
+                },
+                {
+                  "key": "direction",
+                  "value": "desc"
+                },
+                {
+                  "key": "includeMarkdown",
+                  "value": "true"
+                },
+                {
+                  "key": "includeHeadings",
+                  "value": "true"
+                },
+                {
+                  "key": "isStarred",
+                  "value": "<boolean>"
+                },
+                {
+                  "key": "limit",
+                  "value": "<integer>"
+                },
+                {
+                  "key": "includeContents",
+                  "value": "true"
+                },
+                {
+                  "key": "search",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "*/*"
+              }
+            ],
+            "method": "GET",
+            "body": {}
+          },
+          "status": "Too Many Requests",
+          "code": 429,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "*/*"
+            }
+          ],
+          "body": "{\n  \"error\": \"string\",\n  \"retryAfter\": \"string\"\n}",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    },
+    {
+      "id": "873bfe52-652b-4354-81be-59e73b6e02c7",
+      "name": "Returns a single lifelog by ID.",
+      "request": {
+        "name": "Returns a single lifelog by ID.",
+        "description": {
+          "content": "Returns a specific lifelog entry by its unique identifier.",
+          "type": "text/plain"
+        },
+        "url": {
+          "path": [
+            "v1",
+            "lifelogs",
+            ":id"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [
+            {
+              "disabled": false,
+              "key": "timezone",
+              "value": "<string>",
+              "description": "IANA timezone specifier. If missing, UTC is used."
+            },
+            {
+              "disabled": false,
+              "key": "includeMarkdown",
+              "value": "true",
+              "description": "Whether to include markdown content in the response."
+            },
+            {
+              "disabled": false,
+              "key": "includeHeadings",
+              "value": "true",
+              "description": "Whether to include headings in the response."
+            },
+            {
+              "disabled": false,
+              "key": "includeContents",
+              "value": "true",
+              "description": "Whether to include structured contents in the response. When false, the contents array will be empty."
+            }
+          ],
+          "variable": [
+            {
+              "disabled": false,
+              "type": "any",
+              "value": "<string>",
+              "key": "id",
+              "description": "(Required) Unique identifier of the lifelog to retrieve."
+            }
+          ]
+        },
+        "header": [
+          {
+            "key": "Accept",
+            "value": "*/*"
+          }
+        ],
+        "method": "GET",
+        "auth": null
+      },
+      "response": [
+        {
+          "id": "edbc3669-9a1f-4aac-85ae-8ee94868e8c6",
+          "name": "Successful response with a single lifelog entry.",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "v1",
+                "lifelogs",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "key": "timezone",
+                  "value": "<string>"
+                },
+                {
+                  "key": "includeMarkdown",
+                  "value": "true"
+                },
+                {
+                  "key": "includeHeadings",
+                  "value": "true"
+                },
+                {
+                  "key": "includeContents",
+                  "value": "true"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) Unique identifier of the lifelog to retrieve."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "*/*"
+              }
+            ],
+            "method": "GET",
+            "body": {}
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "*/*"
+            }
+          ],
+          "body": "{\n  \"data\": {\n    \"lifelog\": {\n      \"id\": \"string\",\n      \"title\": \"string\",\n      \"markdown\": \"string\",\n      \"contents\": [\n        {\n          \"type\": \"string\",\n          \"content\": \"string\",\n          \"startTime\": \"2003-01-14T16:25:09.881Z\",\n          \"endTime\": \"1997-07-24T14:18:16.650Z\",\n          \"startOffsetMs\": 356,\n          \"endOffsetMs\": 6684,\n          \"children\": [\n            {\n              \"value\": \"<Circular reference to #/components/schemas/ContentNode detected>\"\n            },\n            {\n              \"value\": \"<Circular reference to #/components/schemas/ContentNode detected>\"\n            }\n          ],\n          \"speakerName\": \"string\",\n          \"speakerIdentifier\": \"user\"\n        },\n        {\n          \"type\": \"string\",\n          \"content\": \"string\",\n          \"startTime\": \"1951-02-20T13:56:11.706Z\",\n          \"endTime\": \"1963-10-22T11:27:27.373Z\",\n          \"startOffsetMs\": 8322,\n          \"endOffsetMs\": 6522,\n          \"children\": [\n            {\n              \"value\": \"<Circular reference to #/components/schemas/ContentNode detected>\"\n            },\n            {\n              \"value\": \"<Circular reference to #/components/schemas/ContentNode detected>\"\n            }\n          ],\n          \"speakerName\": \"string\",\n          \"speakerIdentifier\": \"user\"\n        }\n      ],\n      \"startTime\": \"1986-08-09T18:33:26.633Z\",\n      \"endTime\": \"1958-07-10T01:02:49.755Z\",\n      \"isStarred\": false,\n      \"updatedAt\": \"2000-11-22T21:41:29.836Z\"\n    }\n  }\n}",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        },
+        {
+          "id": "b0f6e66d-b85c-49f3-a744-d5d15f405c99",
+          "name": "Unauthorized - Invalid or missing API key.",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "v1",
+                "lifelogs",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "key": "timezone",
+                  "value": "<string>"
+                },
+                {
+                  "key": "includeMarkdown",
+                  "value": "true"
+                },
+                {
+                  "key": "includeHeadings",
+                  "value": "true"
+                },
+                {
+                  "key": "includeContents",
+                  "value": "true"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) Unique identifier of the lifelog to retrieve."
+                }
+              ]
+            },
+            "method": "GET",
+            "body": {}
+          },
+          "status": "Unauthorized",
+          "code": 401,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "text/plain"
+            }
+          ],
+          "body": "",
+          "cookie": [],
+          "_postman_previewlanguage": "text"
+        },
+        {
+          "id": "8f2ab88e-9fc1-459f-9ddd-f9ed85b3d7bc",
+          "name": "Lifelog entry not found.",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "v1",
+                "lifelogs",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "key": "timezone",
+                  "value": "<string>"
+                },
+                {
+                  "key": "includeMarkdown",
+                  "value": "true"
+                },
+                {
+                  "key": "includeHeadings",
+                  "value": "true"
+                },
+                {
+                  "key": "includeContents",
+                  "value": "true"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) Unique identifier of the lifelog to retrieve."
+                }
+              ]
+            },
+            "method": "GET",
+            "body": {}
+          },
+          "status": "Not Found",
+          "code": 404,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "text/plain"
+            }
+          ],
+          "body": "",
+          "cookie": [],
+          "_postman_previewlanguage": "text"
+        },
+        {
+          "id": "2807a436-89e2-4dda-b96e-f05cc1e4232a",
+          "name": "Too Many Requests - Rate limit exceeded.",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "v1",
+                "lifelogs",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "key": "timezone",
+                  "value": "<string>"
+                },
+                {
+                  "key": "includeMarkdown",
+                  "value": "true"
+                },
+                {
+                  "key": "includeHeadings",
+                  "value": "true"
+                },
+                {
+                  "key": "includeContents",
+                  "value": "true"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) Unique identifier of the lifelog to retrieve."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "*/*"
+              }
+            ],
+            "method": "GET",
+            "body": {}
+          },
+          "status": "Too Many Requests",
+          "code": 429,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "*/*"
+            }
+          ],
+          "body": "{\n  \"error\": \"string\",\n  \"retryAfter\": \"string\"\n}",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    },
+    {
+      "id": "107dd566-645b-4def-b037-074461617e7e",
+      "name": "Deletes a single lifelog by ID.",
+      "request": {
+        "name": "Deletes a single lifelog by ID.",
+        "description": {
+          "content": "Permanently deletes a specific lifelog entry by its unique identifier.",
+          "type": "text/plain"
+        },
+        "url": {
+          "path": [
+            "v1",
+            "lifelogs",
+            ":id"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [],
+          "variable": [
+            {
+              "disabled": false,
+              "type": "any",
+              "value": "<string>",
+              "key": "id",
+              "description": "(Required) Unique identifier of the lifelog to delete."
+            }
+          ]
+        },
+        "header": [
+          {
+            "key": "Accept",
+            "value": "*/*"
+          }
+        ],
+        "method": "DELETE",
+        "auth": null
+      },
+      "response": [
+        {
+          "id": "f5d56b2d-a338-4831-806d-ae5a9ef7546a",
+          "name": "Lifelog successfully deleted.",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "v1",
+                "lifelogs",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) Unique identifier of the lifelog to delete."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "*/*"
+              }
+            ],
+            "method": "DELETE",
+            "body": {}
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "*/*"
+            }
+          ],
+          "body": "{\n  \"success\": true\n}",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        },
+        {
+          "id": "9e2986bf-3b0c-4104-9f58-81cd026969da",
+          "name": "Unauthorized - Invalid or missing API key.",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "v1",
+                "lifelogs",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) Unique identifier of the lifelog to delete."
+                }
+              ]
+            },
+            "method": "DELETE",
+            "body": {}
+          },
+          "status": "Unauthorized",
+          "code": 401,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "text/plain"
+            }
+          ],
+          "body": "",
+          "cookie": [],
+          "_postman_previewlanguage": "text"
+        },
+        {
+          "id": "0e8c8859-2846-4a36-ae6b-4745a5f977e2",
+          "name": "Lifelog entry not found.",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "v1",
+                "lifelogs",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) Unique identifier of the lifelog to delete."
+                }
+              ]
+            },
+            "method": "DELETE",
+            "body": {}
+          },
+          "status": "Not Found",
+          "code": 404,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "text/plain"
+            }
+          ],
+          "body": "",
+          "cookie": [],
+          "_postman_previewlanguage": "text"
+        },
+        {
+          "id": "c635e6e4-95de-4758-b171-ea4ebc4dffbc",
+          "name": "Too Many Requests - Rate limit exceeded.",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "v1",
+                "lifelogs",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) Unique identifier of the lifelog to delete."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "*/*"
+              }
+            ],
+            "method": "DELETE",
+            "body": {}
+          },
+          "status": "Too Many Requests",
+          "code": 429,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "*/*"
+            }
+          ],
+          "body": "{\n  \"error\": \"string\",\n  \"retryAfter\": \"string\"\n}",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    },
+    {
+      "id": "0a777392-0e31-43d8-87d0-9a5f0525cfc6",
+      "name": "Returns a list of chats.",
+      "request": {
+        "name": "Returns a list of chats.",
+        "description": {
+          "content": "Returns a list of chats (ask-ai conversations) for the authenticated user. Pagination is supported.",
+          "type": "text/plain"
+        },
+        "url": {
+          "path": [
+            "v1",
+            "chats"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [
+            {
+              "disabled": false,
+              "key": "cursor",
+              "value": "<string>",
+              "description": "Cursor for pagination to retrieve the next set of chats."
+            },
+            {
+              "disabled": false,
+              "key": "direction",
+              "value": "desc",
+              "description": "Sort direction for chats."
+            },
+            {
+              "disabled": false,
+              "key": "limit",
+              "value": "<integer>",
+              "description": "Maximum number of chats to return. Upper limit is 100."
+            },
+            {
+              "disabled": false,
+              "key": "timezone",
+              "value": "<string>",
+              "description": "IANA timezone specifier. If missing, UTC is used."
+            },
+            {
+              "disabled": false,
+              "key": "isScheduled",
+              "value": "<boolean>",
+              "description": "When true, only return chats generated by scheduled prompts; when false, only non-scheduled chats."
+            },
+            {
+              "disabled": false,
+              "key": "globalPromptId",
+              "value": "<string>",
+              "description": "Filter to chats generated by scheduled prompts that match the given globalPromptId (see curated prompts)."
+            }
+          ],
+          "variable": []
+        },
+        "header": [
+          {
+            "key": "Accept",
+            "value": "*/*"
+          }
+        ],
+        "method": "GET",
+        "auth": null
+      },
+      "response": [
+        {
+          "id": "a980aea6-ed3d-4a1d-9db1-87cfb0a704bc",
+          "name": "Successful response with chats.",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "v1",
+                "chats"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "key": "cursor",
+                  "value": "<string>"
+                },
+                {
+                  "key": "direction",
+                  "value": "desc"
+                },
+                {
+                  "key": "limit",
+                  "value": "<integer>"
+                },
+                {
+                  "key": "timezone",
+                  "value": "<string>"
+                },
+                {
+                  "key": "isScheduled",
+                  "value": "<boolean>"
+                },
+                {
+                  "key": "globalPromptId",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "*/*"
+              }
+            ],
+            "method": "GET",
+            "body": {}
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "*/*"
+            }
+          ],
+          "body": "{\n  \"data\": {\n    \"chats\": [\n      {\n        \"id\": \"string\",\n        \"summary\": \"string\",\n        \"createdAt\": \"2025-04-24T18:10:28.486Z\",\n        \"startedAt\": \"1957-06-06T02:51:59.785Z\",\n        \"messages\": [\n          {\n            \"id\": \"string\",\n            \"text\": \"string\",\n            \"toolCalls\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"toolResults\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"createdAt\": \"2005-08-21T14:59:06.196Z\",\n            \"user\": {\n              \"role\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"name\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          },\n          {\n            \"id\": \"string\",\n            \"text\": \"string\",\n            \"toolCalls\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"toolResults\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"createdAt\": \"1986-12-30T02:04:32.060Z\",\n            \"user\": {\n              \"role\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"name\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          }\n        ],\n        \"visibility\": \"private\"\n      },\n      {\n        \"id\": \"string\",\n        \"summary\": \"string\",\n        \"createdAt\": \"1959-08-12T04:19:17.203Z\",\n        \"startedAt\": \"1989-06-17T06:11:00.978Z\",\n        \"messages\": [\n          {\n            \"id\": \"string\",\n            \"text\": \"string\",\n            \"toolCalls\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"toolResults\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"createdAt\": \"2011-04-08T01:12:06.089Z\",\n            \"user\": {\n              \"role\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"name\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          },\n          {\n            \"id\": \"string\",\n            \"text\": \"string\",\n            \"toolCalls\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"toolResults\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"createdAt\": \"1950-10-30T17:01:32.910Z\",\n            \"user\": {\n              \"role\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"name\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          }\n        ],\n        \"visibility\": \"public\"\n      }\n    ]\n  },\n  \"meta\": {\n    \"chats\": {\n      \"nextCursor\": \"string\",\n      \"count\": 600\n    }\n  }\n}",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        },
+        {
+          "id": "e32128b1-e959-4ee9-8260-41afc2ee26ba",
+          "name": "Unauthorized - Invalid or missing API key.",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "v1",
+                "chats"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "key": "cursor",
+                  "value": "<string>"
+                },
+                {
+                  "key": "direction",
+                  "value": "desc"
+                },
+                {
+                  "key": "limit",
+                  "value": "<integer>"
+                },
+                {
+                  "key": "timezone",
+                  "value": "<string>"
+                },
+                {
+                  "key": "isScheduled",
+                  "value": "<boolean>"
+                },
+                {
+                  "key": "globalPromptId",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "method": "GET",
+            "body": {}
+          },
+          "status": "Unauthorized",
+          "code": 401,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "text/plain"
+            }
+          ],
+          "body": "",
+          "cookie": [],
+          "_postman_previewlanguage": "text"
+        },
+        {
+          "id": "fc30d9db-450a-45a2-8b2a-a6518f4f3e78",
+          "name": "Too Many Requests - Rate limit exceeded.",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "v1",
+                "chats"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "key": "cursor",
+                  "value": "<string>"
+                },
+                {
+                  "key": "direction",
+                  "value": "desc"
+                },
+                {
+                  "key": "limit",
+                  "value": "<integer>"
+                },
+                {
+                  "key": "timezone",
+                  "value": "<string>"
+                },
+                {
+                  "key": "isScheduled",
+                  "value": "<boolean>"
+                },
+                {
+                  "key": "globalPromptId",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "*/*"
+              }
+            ],
+            "method": "GET",
+            "body": {}
+          },
+          "status": "Too Many Requests",
+          "code": 429,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "*/*"
+            }
+          ],
+          "body": "{\n  \"error\": \"string\",\n  \"retryAfter\": \"string\"\n}",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    },
+    {
+      "id": "d490cf73-ced7-4d62-bf80-f6c0e62ec6bd",
+      "name": "Returns a single chat by ID.",
+      "request": {
+        "name": "Returns a single chat by ID.",
+        "description": {
+          "content": "Returns a specific chat (ask-ai conversation) by its unique identifier. Users can only access their own chats or public chats.",
+          "type": "text/plain"
+        },
+        "url": {
+          "path": [
+            "v1",
+            "chats",
+            ":id"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [
+            {
+              "disabled": false,
+              "key": "timezone",
+              "value": "<string>",
+              "description": "IANA timezone specifier. If missing, UTC is used."
+            }
+          ],
+          "variable": [
+            {
+              "disabled": false,
+              "type": "any",
+              "value": "<string>",
+              "key": "id",
+              "description": "(Required) Unique identifier of the chat to retrieve."
+            }
+          ]
+        },
+        "header": [
+          {
+            "key": "Accept",
+            "value": "*/*"
+          }
+        ],
+        "method": "GET",
+        "auth": null
+      },
+      "response": [
+        {
+          "id": "b2183d42-faf0-4d9c-9f36-59bbde2d298f",
+          "name": "Successful response with a single chat.",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "v1",
+                "chats",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "key": "timezone",
+                  "value": "<string>"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) Unique identifier of the chat to retrieve."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "*/*"
+              }
+            ],
+            "method": "GET",
+            "body": {}
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "*/*"
+            }
+          ],
+          "body": "{\n  \"data\": {\n    \"chat\": {\n      \"id\": \"string\",\n      \"summary\": \"string\",\n      \"createdAt\": \"1959-12-13T10:19:26.589Z\",\n      \"startedAt\": \"2025-03-06T06:44:02.319Z\",\n      \"messages\": [\n        {\n          \"id\": \"string\",\n          \"text\": \"string\",\n          \"toolCalls\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"toolResults\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"createdAt\": \"2021-07-27T10:09:23.352Z\",\n          \"user\": {\n            \"role\": \"system\",\n            \"name\": \"string\"\n          }\n        },\n        {\n          \"id\": \"string\",\n          \"text\": \"string\",\n          \"toolCalls\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"toolResults\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"createdAt\": \"1961-03-28T23:41:50.522Z\",\n          \"user\": {\n            \"role\": \"user\",\n            \"name\": \"string\"\n          }\n        }\n      ],\n      \"visibility\": \"internal\"\n    }\n  }\n}",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        },
+        {
+          "id": "dd7272d9-ab94-4ff2-952d-e8f14b0c51e0",
+          "name": "Unauthorized - Invalid or missing API key.",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "v1",
+                "chats",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "key": "timezone",
+                  "value": "<string>"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) Unique identifier of the chat to retrieve."
+                }
+              ]
+            },
+            "method": "GET",
+            "body": {}
+          },
+          "status": "Unauthorized",
+          "code": 401,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "text/plain"
+            }
+          ],
+          "body": "",
+          "cookie": [],
+          "_postman_previewlanguage": "text"
+        },
+        {
+          "id": "b61cb7f1-e896-43eb-9a53-373303b4d362",
+          "name": "Chat not found.",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "v1",
+                "chats",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "key": "timezone",
+                  "value": "<string>"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) Unique identifier of the chat to retrieve."
+                }
+              ]
+            },
+            "method": "GET",
+            "body": {}
+          },
+          "status": "Not Found",
+          "code": 404,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "text/plain"
+            }
+          ],
+          "body": "",
+          "cookie": [],
+          "_postman_previewlanguage": "text"
+        },
+        {
+          "id": "324b88d6-21a6-41e3-ad8e-95f168816ba4",
+          "name": "Too Many Requests - Rate limit exceeded.",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "v1",
+                "chats",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "key": "timezone",
+                  "value": "<string>"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) Unique identifier of the chat to retrieve."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "*/*"
+              }
+            ],
+            "method": "GET",
+            "body": {}
+          },
+          "status": "Too Many Requests",
+          "code": 429,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "*/*"
+            }
+          ],
+          "body": "{\n  \"error\": \"string\",\n  \"retryAfter\": \"string\"\n}",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    },
+    {
+      "id": "c59505b5-124e-41d0-8b15-41fa5ed6e488",
+      "name": "Deletes a single chat by ID.",
+      "request": {
+        "name": "Deletes a single chat by ID.",
+        "description": {
+          "content": "Permanently deletes a specific chat (ask-ai conversation) by its unique identifier. Users can only delete their own chats.",
+          "type": "text/plain"
+        },
+        "url": {
+          "path": [
+            "v1",
+            "chats",
+            ":id"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [],
+          "variable": [
+            {
+              "disabled": false,
+              "type": "any",
+              "value": "<string>",
+              "key": "id",
+              "description": "(Required) Unique identifier of the chat to delete."
+            }
+          ]
+        },
+        "header": [
+          {
+            "key": "Accept",
+            "value": "*/*"
+          }
+        ],
+        "method": "DELETE",
+        "auth": null
+      },
+      "response": [
+        {
+          "id": "5d6f3a31-3bc3-4397-b213-d0dd6348b8f1",
+          "name": "Chat successfully deleted.",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "v1",
+                "chats",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) Unique identifier of the chat to delete."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "*/*"
+              }
+            ],
+            "method": "DELETE",
+            "body": {}
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "*/*"
+            }
+          ],
+          "body": "{\n  \"data\": {\n    \"success\": true\n  }\n}",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        },
+        {
+          "id": "ca204f4d-19ec-4e7f-8da4-3b9795e34754",
+          "name": "Unauthorized - Invalid or missing API key.",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "v1",
+                "chats",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) Unique identifier of the chat to delete."
+                }
+              ]
+            },
+            "method": "DELETE",
+            "body": {}
+          },
+          "status": "Unauthorized",
+          "code": 401,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "text/plain"
+            }
+          ],
+          "body": "",
+          "cookie": [],
+          "_postman_previewlanguage": "text"
+        },
+        {
+          "id": "83565d7f-303e-47de-802e-06028b0a3dcf",
+          "name": "Chat not found.",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "v1",
+                "chats",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) Unique identifier of the chat to delete."
+                }
+              ]
+            },
+            "method": "DELETE",
+            "body": {}
+          },
+          "status": "Not Found",
+          "code": 404,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "text/plain"
+            }
+          ],
+          "body": "",
+          "cookie": [],
+          "_postman_previewlanguage": "text"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    },
+    {
+      "id": "cf5df2a9-e1cd-4f17-9b4e-f9dfe9824c09",
+      "name": "Downloads audio for a specified time range.",
+      "request": {
+        "name": "Downloads audio for a specified time range.",
+        "description": {
+          "content": "Downloads audio in Ogg Opus format for a given time range from the specified audio source. The requested time range must be 2 hours (7,200,000 ms) or less.",
+          "type": "text/plain"
+        },
+        "url": {
+          "path": [
+            "v1",
+            "download-audio"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [
+            {
+              "disabled": false,
+              "key": "audioSource",
+              "value": "pendant",
+              "description": "Audio source to download from."
+            },
+            {
+              "disabled": false,
+              "key": "startMs",
+              "value": "<integer>",
+              "description": "(Required) Start time in milliseconds. Must be non-negative and less than endMs."
+            },
+            {
+              "disabled": false,
+              "key": "endMs",
+              "value": "<integer>",
+              "description": "(Required) End time in milliseconds. Must be non-negative and greater than startMs. The duration between startMs and endMs cannot exceed 2 hours (7,200,000 ms)."
+            }
+          ],
+          "variable": []
+        },
+        "header": [
+          {
+            "key": "Accept",
+            "value": "audio/ogg"
+          }
+        ],
+        "method": "GET",
+        "auth": null
+      },
+      "response": [
+        {
+          "id": "68af6675-a3ab-4d9e-ab52-6754d0433a3e",
+          "name": "Audio file successfully retrieved.",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "v1",
+                "download-audio"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "key": "audioSource",
+                  "value": "pendant"
+                },
+                {
+                  "key": "startMs",
+                  "value": "<integer>"
+                },
+                {
+                  "key": "endMs",
+                  "value": "<integer>"
+                }
+              ],
+              "variable": []
+            },
+            "method": "GET",
+            "body": {}
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "disabled": false,
+              "key": "Cache-Control",
+              "value": "public, max-age=3600",
+              "description": ""
+            },
+            {
+              "disabled": false,
+              "key": "Content-Disposition",
+              "value": "inline; filename=\"audio.ogg\"",
+              "description": ""
+            },
+            {
+              "key": "Content-Type",
+              "value": "text/plain"
+            }
+          ],
+          "body": "",
+          "cookie": [],
+          "_postman_previewlanguage": "text"
+        },
+        {
+          "id": "a96ae517-1f97-45bb-931c-d3521baef349",
+          "name": "Bad Request - Invalid parameters (e.g., endMs <= startMs) or time range exceeds 2 hours (7,200,000 ms).",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "v1",
+                "download-audio"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "key": "audioSource",
+                  "value": "pendant"
+                },
+                {
+                  "key": "startMs",
+                  "value": "<integer>"
+                },
+                {
+                  "key": "endMs",
+                  "value": "<integer>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "audio/ogg"
+              }
+            ],
+            "method": "GET",
+            "body": {}
+          },
+          "status": "Bad Request",
+          "code": 400,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "audio/ogg"
+            }
+          ],
+          "body": "",
+          "cookie": [],
+          "_postman_previewlanguage": "text"
+        },
+        {
+          "id": "4da23096-0984-4f04-ae75-82dea584d5a7",
+          "name": "Unauthorized - Invalid or missing API key.",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "v1",
+                "download-audio"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "key": "audioSource",
+                  "value": "pendant"
+                },
+                {
+                  "key": "startMs",
+                  "value": "<integer>"
+                },
+                {
+                  "key": "endMs",
+                  "value": "<integer>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "audio/ogg"
+              }
+            ],
+            "method": "GET",
+            "body": {}
+          },
+          "status": "Unauthorized",
+          "code": 401,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "audio/ogg"
+            }
+          ],
+          "body": "",
+          "cookie": [],
+          "_postman_previewlanguage": "text"
+        },
+        {
+          "id": "cf122b75-4601-405e-a8b2-df231927d68f",
+          "name": "No audio available for the requested time range.",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "v1",
+                "download-audio"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "key": "audioSource",
+                  "value": "pendant"
+                },
+                {
+                  "key": "startMs",
+                  "value": "<integer>"
+                },
+                {
+                  "key": "endMs",
+                  "value": "<integer>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "audio/ogg"
+              }
+            ],
+            "method": "GET",
+            "body": {}
+          },
+          "status": "Not Found",
+          "code": 404,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "audio/ogg"
+            }
+          ],
+          "body": "",
+          "cookie": [],
+          "_postman_previewlanguage": "text"
+        },
+        {
+          "id": "087d59f1-3bde-4341-88ec-e14209663b81",
+          "name": "Too Many Requests - Rate limit exceeded.",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "v1",
+                "download-audio"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "key": "audioSource",
+                  "value": "pendant"
+                },
+                {
+                  "key": "startMs",
+                  "value": "<integer>"
+                },
+                {
+                  "key": "endMs",
+                  "value": "<integer>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "audio/ogg"
+              }
+            ],
+            "method": "GET",
+            "body": {}
+          },
+          "status": "Too Many Requests",
+          "code": 429,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "audio/ogg"
+            }
+          ],
+          "body": "",
+          "cookie": [],
+          "_postman_previewlanguage": "text"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.limitless.ai",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "8ce68d9c-e06b-4062-a4d1-0f2dcef2cf4a",
+    "name": "Limitless Developer API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "API for accessing lifelogs, providing transparency and portability to user data.\n\n## Rate Limiting\nThe API implements rate limiting to ensure fair usage and protect against abuse.\n- **Default Rate Limit:** 180 requests per minute per API key\n- **Rate Limit Response:** When exceeded, returns 429 Too Many Requests with retry information\n",
+      "type": "text/plain"
+    }
+  }
+}
