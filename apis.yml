@@ -106,6 +106,8 @@ apis:
       - type: Endpoint
         url: https://api.limitless.ai/mcp
 common:
+  - type: AgenticAccess
+    url: agentic-access/limitless-ai-agentic-access.yml
   - type: DomainSecurity
     url: security/limitless-ai-domain-security.yml
   - type: LinkedIn
