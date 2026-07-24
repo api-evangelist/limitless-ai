@@ -1,0 +1,100 @@
+swagger: '2.0'
+info:
+  title: Limitless Developer Chats Download Audio API
+  description: 'API for accessing lifelogs, providing transparency and portability to user data.
+
+
+    ## Rate Limiting
+
+    The API implements rate limiting to ensure fair usage and protect against abuse.
+
+    - **Default Rate Limit:** 180 requests per minute per API key
+
+    - **Rate Limit Response:** When exceeded, returns 429 Too Many Requests with retry information
+
+    '
+  version: 1.0.0
+host: api.limitless.ai
+basePath: /
+schemes:
+- https
+tags:
+- name: Download Audio
+paths:
+  /v1/download-audio:
+    get:
+      operationId: downloadAudio
+      summary: Downloads audio for a specified time range.
+      description: Downloads audio in Ogg Opus format for a given time range from the specified audio source. The requested time range must be 2 hours (7,200,000 ms) or less.
+      parameters:
+      - in: query
+        name: audioSource
+        type: string
+        enum:
+        - pendant
+        default: pendant
+        description: Audio source to download from.
+      - in: query
+        name: startMs
+        type: integer
+        minimum: 0
+        required: true
+        description: Start time in milliseconds. Must be non-negative and less than endMs.
+      - in: query
+        name: endMs
+        type: integer
+        minimum: 0
+        required: true
+        description: End time in milliseconds. Must be non-negative and greater than startMs. The duration between startMs and endMs cannot exceed 2 hours (7,200,000 ms).
+      produces:
+      - audio/ogg
+      responses:
+        '200':
+          description: Audio file successfully retrieved.
+          headers:
+            Content-Type:
+              type: string
+              default: audio/ogg
+            Cache-Control:
+              type: string
+              default: public, max-age=3600
+            Content-Disposition:
+              type: string
+              default: inline; filename="audio.ogg"
+        '400':
+          description: Bad Request - Invalid parameters (e.g., endMs <= startMs) or time range exceeds 2 hours (7,200,000 ms).
+          schema:
+            type: object
+            properties:
+              error:
+                type: string
+                description: Error message describing the invalid input or limit exceeded.
+        '401':
+          description: Unauthorized - Invalid or missing API key.
+          schema:
+            type: object
+            properties:
+              error:
+                type: string
+                description: Error message indicating unauthorized access.
+        '404':
+          description: No audio available for the requested time range.
+          schema:
+            type: object
+            properties:
+              error:
+                type: string
+                description: Error message indicating no audio found for the specified time range.
+        '429':
+          description: Too Many Requests - Rate limit exceeded.
+          schema:
+            type: object
+            properties:
+              error:
+                type: string
+                description: Error message indicating rate limit exceeded.
+              retryAfter:
+                type: string
+                description: Number of seconds to wait before retrying.
+      tags:
+      - Download Audio

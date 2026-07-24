@@ -1,0 +1,33 @@
+swagger: '2.0'
+info:
+  title: Limitless Developer Chats Limitless Developer API API
+  description: 'API for accessing lifelogs, providing transparency and portability to user data.
+
+
+    ## Rate Limiting
+
+    The API implements rate limiting to ensure fair usage and protect against abuse.
+
+    - **Default Rate Limit:** 180 requests per minute per API key
+
+    - **Rate Limit Response:** When exceeded, returns 429 Too Many Requests with retry information
+
+    '
+  version: 1.0.0
+host: api.limitless.ai
+basePath: /
+schemes:
+- https
+tags:
+- name: Limitless Developer API
+paths:
+  /:
+    get:
+      operationId: getRoot
+      summary: Redirect to the developer docs.
+      description: Redirects to the developer docs.
+      responses:
+        '302':
+          description: Redirect to the developer docs.
+      tags:
+      - Limitless Developer API
