@@ -10,7 +10,19 @@ description: >-
   that lets Claude and other MCP-compatible tools query Limitless memory
   directly. The OpenAPI spec is published and example code is hosted on
   GitHub.
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+accessModel:
+  pricing: free
+  onboarding: unknown
+  trial: false
+  try_now: false
+  public: false
+  label: Free
+  confidence: medium
+  source:
+  - plans
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/limitless-ai.png
 tags:
   - AI
   - Wearable
@@ -25,86 +37,121 @@ created: '2026-05-23'
 modified: '2026-05-23'
 specificationVersion: '0.19'
 apis:
-  - aid: limitless-ai:pendant
-    name: Limitless Pendant
-    description: >-
-      Wearable AI pendant that captures ambient audio, transcribes it, and
-      stores it as Lifelogs in the user's Limitless account.
-    image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
-    humanURL: https://www.limitless.ai/
-    baseURL: https://www.limitless.ai
-    tags:
-      - Hardware
-      - Wearable
-      - Pendant
-      - Lifelogs
-    properties:
-      - type: ProductPage
-        url: https://www.limitless.ai/
-  - aid: limitless-ai:meeting-assistant
-    name: Limitless Meeting Assistant
-    description: >-
-      Software assistant for meetings — transcripts, summaries, and Ask AI
-      chat over personal memory. Available across desktop and mobile.
-    image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
-    humanURL: https://www.limitless.ai/
-    baseURL: https://www.limitless.ai
-    tags:
-      - Meetings
-      - Assistant
-      - Transcripts
-      - Ask AI
-    properties:
-      - type: ProductPage
-        url: https://www.limitless.ai/
-  - aid: limitless-ai:developer-api
-    name: Limitless Developer API
-    description: >-
-      REST API at https://api.limitless.ai/v1 for the authenticated user's
-      Lifelogs and Ask AI chat history. Authentication is the `X-API-Key`
-      header with a key generated in Developer settings. Endpoints include
-      GET /lifelogs (search, sort, paginate), GET /lifelogs/{id}, DELETE
-      /lifelogs/{id}, GET /download-audio (Ogg Opus, max 2-hour duration),
-      GET /chats, GET /chats/{id}, and DELETE /chats/{id}. Rate limit is 180
-      requests per minute per API key. OpenAPI spec is published at
-      /openapi.yml and example code lives on GitHub.
-    image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
-    humanURL: https://www.limitless.ai/developers
-    baseURL: https://api.limitless.ai/v1
-    tags:
-      - REST
-      - API Key
-      - Lifelogs
-      - Audio
-      - Chats
-      - OpenAPI
-    properties:
-      - type: Documentation
-        url: https://www.limitless.ai/developers
-      - type: OpenAPI
-        url: https://api.limitless.ai/v1/openapi.yml
-      - type: Examples
-        url: https://github.com/limitless-ai-inc/limitless-api-examples
-      - type: GitHubOrg
-        url: https://github.com/limitless-ai-inc
-  - aid: limitless-ai:mcp-server
-    name: Limitless MCP Server
-    description: >-
-      Hosted Model Context Protocol endpoint that connects Claude and other
-      MCP-compatible clients to the user's Limitless memory.
-    image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
-    humanURL: https://www.limitless.ai/developers
-    baseURL: https://api.limitless.ai/mcp
-    tags:
-      - MCP
-      - Model Context Protocol
-      - Claude
-      - Memory
-    properties:
-      - type: Documentation
-        url: https://www.limitless.ai/developers
-      - type: Endpoint
-        url: https://api.limitless.ai/mcp
+- aid: limitless-ai:pendant
+  name: Limitless Pendant
+  description: >-
+    Wearable AI pendant that captures ambient audio, transcribes it, and stores it as Lifelogs in the
+    user's Limitless account.
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: https://www.limitless.ai/
+  baseURL: https://www.limitless.ai
+  tags:
+  - Hardware
+  - Wearable
+  - Pendant
+  - Lifelogs
+  properties:
+  - type: ProductPage
+    url: https://www.limitless.ai/
+- aid: limitless-ai:meeting-assistant
+  name: Limitless Meeting Assistant
+  description: >-
+    Software assistant for meetings — transcripts, summaries, and Ask AI chat over personal memory. Available
+    across desktop and mobile.
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: https://www.limitless.ai/
+  baseURL: https://www.limitless.ai
+  tags:
+  - Meetings
+  - Assistant
+  - Transcripts
+  - Ask AI
+  properties:
+  - type: ProductPage
+    url: https://www.limitless.ai/
+- aid: limitless-ai:mcp-server
+  name: Limitless MCP Server
+  description: >-
+    Hosted Model Context Protocol endpoint that connects Claude and other MCP-compatible clients to the
+    user's Limitless memory.
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: https://www.limitless.ai/developers
+  baseURL: https://api.limitless.ai/mcp
+  tags:
+  - MCP
+  - Model Context Protocol
+  - Claude
+  - Memory
+  properties:
+  - type: Documentation
+    url: https://www.limitless.ai/developers
+  - type: Endpoint
+    url: https://api.limitless.ai/mcp
+- aid: limitless-ai:limitless-ai-chats-api
+  name: Limitless Chats API
+  description: The Chats API from Limitless — 2 operation(s) for chats.
+  humanURL: https://www.limitless.ai/
+  baseURL: https://www.limitless.ai
+  tags:
+  - Chats
+  properties:
+  - type: OpenAPI
+    url: openapi/limitless-ai-chats-api-openapi.yml
+  - type: Documentation
+    url: https://www.limitless.ai/developers
+  - type: Examples
+    url: https://github.com/limitless-ai-inc/limitless-api-examples
+  - type: GitHubOrg
+    url: https://github.com/limitless-ai-inc
+- aid: limitless-ai:limitless-ai-download-audio-api
+  name: Limitless Download Audio API
+  description: The Download Audio API from Limitless — 1 operation(s) for download audio.
+  humanURL: https://www.limitless.ai/
+  baseURL: https://www.limitless.ai
+  tags:
+  - Download Audio
+  properties:
+  - type: OpenAPI
+    url: openapi/limitless-ai-download-audio-api-openapi.yml
+  - type: Documentation
+    url: https://www.limitless.ai/developers
+  - type: Examples
+    url: https://github.com/limitless-ai-inc/limitless-api-examples
+  - type: GitHubOrg
+    url: https://github.com/limitless-ai-inc
+- aid: limitless-ai:limitless-ai-lifelogs-api
+  name: Limitless Lifelogs API
+  description: The Lifelogs API from Limitless — 2 operation(s) for lifelogs.
+  humanURL: https://www.limitless.ai/
+  baseURL: https://www.limitless.ai
+  tags:
+  - Lifelogs
+  properties:
+  - type: OpenAPI
+    url: openapi/limitless-ai-lifelogs-api-openapi.yml
+  - type: Documentation
+    url: https://www.limitless.ai/developers
+  - type: Examples
+    url: https://github.com/limitless-ai-inc/limitless-api-examples
+  - type: GitHubOrg
+    url: https://github.com/limitless-ai-inc
+- aid: limitless-ai:limitless-ai-limitless-developer-api-api
+  name: Limitless Limitless Developer API API
+  description: >-
+    The Limitless Developer API API from Limitless — 1 operation(s) for limitless developer api.
+  humanURL: https://www.limitless.ai/
+  baseURL: https://www.limitless.ai
+  tags:
+  - Limitless Developer API
+  properties:
+  - type: OpenAPI
+    url: openapi/limitless-ai-limitless-developer-api-api-openapi.yml
+  - type: Documentation
+    url: https://www.limitless.ai/developers
+  - type: Examples
+    url: https://github.com/limitless-ai-inc/limitless-api-examples
+  - type: GitHubOrg
+    url: https://github.com/limitless-ai-inc
 common:
   - type: AgenticAccess
     url: agentic-access/limitless-ai-agentic-access.yml
