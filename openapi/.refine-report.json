@@ -1,0 +1,20 @@
+{
+  "provider": "limitless-ai",
+  "sources": [
+    "limitless-ai-chats-api-openapi.yml",
+    "limitless-ai-download-audio-api-openapi.yml",
+    "limitless-ai-lifelogs-api-openapi.yml",
+    "limitless-ai-limitless-developer-api-api-openapi.yml"
+  ],
+  "outputs": [
+    "limitless-ai-chats-api-openapi.yml",
+    "limitless-ai-download-audio-api-openapi.yml",
+    "limitless-ai-lifelogs-api-openapi.yml",
+    "limitless-ai-limitless-developer-api-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
