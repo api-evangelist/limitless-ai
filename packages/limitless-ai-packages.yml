@@ -1,0 +1,45 @@
+generated: '2026-07-19'
+method: searched
+source: npm, PyPI, and https://www.limitless.ai/developers
+packages: []
+official_sdks: false
+note: >-
+  Limitless publishes NO first-party client libraries. The developer documentation
+  points only at a hand-written example repository, not at a distributed package. The
+  registry names that superficially match are unrelated third parties and were
+  explicitly ruled out - they are recorded below so a future re-run does not mistake
+  them for first-party SDKs.
+code_examples:
+- name: limitless-api-examples
+  official: true
+  url: https://github.com/limitless-ai-inc/limitless-api-examples
+  languages:
+  - python
+  - typescript
+  - jupyter
+  description: >-
+    First-party example repository from the limitless-ai-inc GitHub org. Contains
+    python/ and typescript/ example directories, notebooks/, and a copy of openapi.yml.
+    Sample code only - nothing is published to a package registry.
+registries_probed:
+- registry: npm
+  name: limitless
+  status: 200
+  official: false
+  reason: 'Unrelated package (description "WIP", version 0.0.0, maintainer "hagai"); no link to Limitless AI.'
+- registry: npm
+  name: limitless-ai
+  status: 404
+- registry: npm
+  name: '@limitless-ai/sdk'
+  status: 404
+- registry: pypi
+  name: limitless-ai
+  status: 200
+  official: false
+  reason: 'Unrelated package - "Universal AI Game Agent" by Haum Lab.'
+- registry: pypi
+  name: limitless
+  status: 200
+  official: false
+  reason: 'Unrelated package - "My first Python package" by Obinna Okpokwasili.'

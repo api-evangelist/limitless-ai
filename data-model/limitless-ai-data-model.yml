@@ -1,0 +1,127 @@
+generated: '2026-07-19'
+method: derived
+source: openapi/limitless-developer-openapi-original.yml
+note: >-
+  Derived from the Swagger 2.0 `definitions` graph. Limitless publishes no object
+  reference page, so id prefixes and identifier formats are not documented.
+entities:
+- name: Lifelog
+  description: >-
+    A single Pendant recording session - the core Limitless object. Carries a title, a
+    markdown rendering of the transcript, a structured `contents` tree, and a time span.
+  fields:
+  - {name: id, type: string}
+  - {name: title, type: string}
+  - {name: markdown, type: string}
+  - {name: contents, type: array, items: ContentNode}
+  - {name: startTime, type: string}
+  - {name: endTime, type: string}
+  - {name: isStarred, type: boolean}
+  - {name: updatedAt, type: string}
+  operations:
+  - getLifelogs
+  - getLifelog
+  - deleteLifelog
+  id_prefix: not published
+- name: ContentNode
+  description: >-
+    A node in the structured transcript tree of a Lifelog. Self-referential via
+    `children`, so a Lifelog's contents form an n-ary tree of headings and speaker
+    blockquotes with millisecond offsets.
+  fields:
+  - {name: type, type: string}
+  - {name: content, type: string}
+  - {name: startTime, type: string}
+  - {name: endTime, type: string}
+  - {name: startOffsetMs, type: integer}
+  - {name: endOffsetMs, type: integer}
+  - {name: children, type: array, items: ContentNode}
+  - {name: speakerName, type: string}
+  - {name: speakerIdentifier, type: string}
+- name: Chat
+  description: An Ask AI conversation, containing an ordered list of ChatMessage objects.
+  fields:
+  - {name: id, type: string}
+  - {name: summary, type: string}
+  - {name: createdAt, type: string}
+  - {name: startedAt, type: string}
+  - {name: messages, type: array, items: ChatMessage}
+  - {name: visibility, type: string}
+  operations:
+  - getChats
+  - getChat
+  - deleteChat
+  id_prefix: not published
+- name: ChatMessage
+  description: A single turn in a Chat, including any agent tool calls and their results.
+  fields:
+  - {name: id, type: string}
+  - {name: text, type: string}
+  - {name: toolCalls, type: array, items: ToolCall}
+  - {name: toolResults, type: array, items: ToolResult}
+  - {name: createdAt, type: string}
+  - {name: user, type: object}
+- name: ToolCall
+  description: A tool invocation issued by Ask AI within a ChatMessage.
+  fields:
+  - {name: id, type: string}
+  - {name: toolName, type: string}
+  - {name: args, type: object}
+- name: ToolResult
+  description: >-
+    The result of a ToolCall. `entriesReturned` links the result back to the Lifelog
+    entries the agent retrieved, which is the join between the Chat graph and the
+    Lifelog graph.
+  fields:
+  - {name: result, type: object}
+  - {name: isError, type: boolean}
+  - {name: toolCallId, type: string}
+  - {name: toolName, type: string}
+  - {name: entriesReturned, type: array}
+relationships:
+- from: Lifelog
+  to: ContentNode
+  type: has_many
+  via: contents
+- from: ContentNode
+  to: ContentNode
+  type: has_many
+  via: children
+  note: Self-referential tree.
+- from: Chat
+  to: ChatMessage
+  type: has_many
+  via: messages
+- from: ChatMessage
+  to: ToolCall
+  type: has_many
+  via: toolCalls
+- from: ChatMessage
+  to: ToolResult
+  type: has_many
+  via: toolResults
+- from: ToolResult
+  to: ToolCall
+  type: belongs_to
+  via: toolCallId
+- from: ToolResult
+  to: Lifelog
+  type: has_many
+  via: entriesReturned
+  note: >-
+    Derived association - `entriesReturned` carries the lifelog entries an Ask AI tool
+    call retrieved. The spec types it as a bare array with no $ref, so the link is
+    inferred from naming and semantics, not from the schema.
+envelopes:
+- {name: LifelogsResponse, wraps: 'data.lifelogs[] + meta.lifelogs'}
+- {name: LifelogResponse, wraps: data.lifelog}
+- {name: ChatsResponse, wraps: 'data.chats[] + meta'}
+- {name: ChatResponse, wraps: data.chat}
+- {name: DeleteChatResponse, wraps: data}
+non_entity_resources:
+- name: audio
+  operation: downloadAudio
+  format: Ogg Opus
+  note: >-
+    Binary audio for a time range rather than a modeled object; not addressed by id and
+    capped at 2 hours per request.

@@ -1,0 +1,66 @@
+generated: '2026-07-19'
+method: searched
+source: https://www.limitless.ai/
+versioning:
+  scheme: uri-path
+  current: v1
+  base_url: https://api.limitless.ai
+  docs: https://www.limitless.ai/developers
+  policy_published: false
+deprecation:
+  policy_url: https://www.limitless.ai/
+  sunset_header: unknown
+  deprecation_header: unknown
+  policy_published: false
+  note: >-
+    Limitless publishes no formal API deprecation policy, but it does publish a
+    company-level wind-down notice on its homepage following the Meta acquisition. That
+    notice is the operative sunset communication for anyone integrating this API.
+company_status:
+  event: acquired
+  acquirer: Meta
+  announcement_url: https://www.limitless.ai/
+  announced_by: Dan Siroker, Co-Founder & CEO
+  quotes:
+  - '"Limitless has been acquired by Meta."'
+  - '"We will continue to support existing Pendant customers throughout 2026."'
+  - '"We are no longer selling the Pendant as of December 5, 2025."'
+  timeline:
+  - date: '2025-12-05'
+    event: >-
+      Pendant sales end. Limitless service becomes unavailable in Brazil, China, the
+      European Union, Israel, South Korea, Turkey, and the United Kingdom.
+  - date: '2025-12-19'
+    event: >-
+      Rewind app disables all screen and audio capture. Users in withdrawn regions lose
+      access; accounts and associated data in those regions are permanently deleted after
+      this date.
+  - date: '2026-12-31'
+    event: >-
+      Stated end of the committed support window - existing Pendant customers are
+      supported "throughout 2026" on a free Unlimited Plan. No commitment is published
+      beyond 2026.
+  integration_risk: >-
+    HIGH. The Developer API is tied to a product with a published end-of-support horizon
+    of end-of-2026 and no post-2026 commitment. New integrations should treat this API as
+    export-oriented rather than durable.
+data_portability:
+  export_supported: true
+  delete_supported: true
+  source: https://www.limitless.ai/
+  note: >-
+    Limitless shipped a full data-export feature alongside the acquisition notice, and
+    in-app account/data deletion. The API itself is framed in its own OpenAPI description
+    as existing "to provide transparency and portability to user data".
+sla:
+  published: false
+status_page:
+  published: false
+  note: No status.limitless.ai host resolves and no status page is linked from the site.
+deprecated_operations: []
+terms_changes:
+  note: >-
+    Continuing customers were required to accept an updated Privacy Policy and Terms of
+    Service as a condition of the acquisition transition.
+  terms: https://www.limitless.ai/terms
+  privacy: https://www.limitless.ai/privacy-policy

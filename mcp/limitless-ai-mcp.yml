@@ -1,0 +1,40 @@
+generated: '2026-07-19'
+method: searched
+status: published
+source: https://www.limitless.ai/developers
+server:
+  name: limitless
+  transport: http
+  url: https://api.limitless.ai/mcp
+  protocol_version: '2025-06-18'
+  probe:
+    url: https://api.limitless.ai/mcp
+    status: 401
+    note: 401 Unauthorized on an unauthenticated request confirms a live, auth-gated MCP endpoint.
+authorization:
+  type: oauth2
+  flow: authorization_code
+  pkce: S256
+  authorization_server: https://api.limitless.ai
+  discovery:
+  - well-known/limitless-oauth-authorization-server.json
+  - well-known/limitless-oauth-protected-resource.json
+  scopes:
+  - openid
+  - profile
+  - email
+  - lifelogs:read
+  dynamic_client_registration: https://api.limitless.ai/api/auth/register
+install:
+  claude:
+    instructions: Settings -> Connectors -> Add custom connector -> https://api.limitless.ai/mcp
+  chatgpt:
+    instructions: Settings -> Connectors -> https://api.limitless.ai/mcp
+    note: Documented by Limitless as available to ChatGPT Pro and Workspace accounts only.
+tools:
+  status: not-enumerated
+  note: >-
+    Limitless does not publish a tool manifest and the endpoint requires OAuth, so the
+    tool list was not enumerated. The underlying REST surface the server fronts is
+    captured in openapi/limitless-developer-openapi-original.yml (8 operations over
+    lifelogs, chats, and audio download).

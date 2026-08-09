@@ -1,0 +1,107 @@
+generated: '2026-07-19'
+method: searched
+source: openapi/limitless-developer-openapi-original.yml
+docs: https://www.limitless.ai/developers
+authentication:
+  style: api-key-header
+  header: X-API-Key
+  alternative: OAuth 2.0 authorization_code + PKCE (MCP surface only)
+  detail: authentication/limitless-authentication.yml
+versioning:
+  scheme: uri-path
+  current: v1
+  base_url: https://api.limitless.ai
+  detail: lifecycle/limitless-lifecycle.yml
+pagination:
+  style: cursor
+  request_params:
+  - name: cursor
+    in: query
+    description: Cursor for the next page. Not supported when `search` is provided.
+  - name: limit
+    in: query
+    description: Maximum entries to return; upper limit 100.
+  - name: direction
+    in: query
+    enum:
+    - asc
+    - desc
+    default: desc
+  response_fields:
+  - meta.lifelogs.nextCursor
+  - meta.lifelogs.count
+  - meta.chats.nextCursor
+  - meta.chats.count
+  notes: >-
+    Cursor pagination is mutually exclusive with the hybrid `search` parameter on
+    GET /v1/lifelogs; search returns at most 100 results and cannot be paged.
+filtering:
+  time_window:
+  - date
+  - start
+  - end
+  - timezone
+  time_format: >-
+    Modified ISO-8601 (YYYY-MM-DD or "YYYY-MM-DD HH:mm:SS"). Offsets embedded in the
+    value are IGNORED; the `timezone` query parameter (IANA specifier, default UTC)
+    is authoritative.
+  other:
+  - isStarred
+  search:
+    param: search
+    style: hybrid
+    description: >-
+      Combination of keyword and semantic search. Accepts natural-language queries
+      ("place bob recommended at dinner") and boolean keyword queries ("blue OR red").
+      AND is accepted but behaves like a space-separated query.
+sparse_fields:
+  style: include-flags
+  params:
+  - name: includeMarkdown
+    default: true
+  - name: includeHeadings
+    default: true
+  - name: includeContents
+    default: true
+    note: >-
+      Structured contents are automatically excluded when more than 25 results are
+      returned, regardless of this flag.
+response_envelope:
+  shape: '{ "data": { <resource> }, "meta": { <resource>: { nextCursor, count } } }'
+  examples:
+  - '{"data":{"lifelogs":[...]},"meta":{"lifelogs":{"nextCursor":"...","count":10}}}'
+  - '{"data":{"lifelog":{...}}}'
+error_envelope:
+  format: ad-hoc-json
+  rfc9457: false
+  shape: '{ "error": "<message>", "retryAfter": "<seconds>" }'
+  note: >-
+    Only the 429 response has a documented body schema. 400/401/404 responses are
+    described but carry no schema in the published spec.
+  detail: errors/limitless-problem-types.yml
+rate_limiting:
+  documented_limit: 180 requests per minute per API key
+  response_status: 429
+  response_field: retryAfter
+  headers: not published
+  detail: rate-limits/limitless-rate-limits.yml
+idempotency:
+  supported: false
+  note: >-
+    The API exposes no create/update operations - every operation is GET or DELETE, both
+    naturally idempotent at the HTTP level - and Limitless documents no idempotency-key
+    header. No Idempotency pointer is emitted for this provider.
+request_tracing:
+  request_id_header: not published
+metadata:
+  supported: false
+content_types:
+  request: none (no request bodies)
+  response:
+  - application/json
+  - audio/ogg
+related:
+  errors: errors/limitless-problem-types.yml
+  lifecycle: lifecycle/limitless-lifecycle.yml
+  authentication: authentication/limitless-authentication.yml
+  rate_limits: rate-limits/limitless-rate-limits.yml

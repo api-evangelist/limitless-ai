@@ -2,14 +2,11 @@ aid: limitless-ai
 url: https://raw.githubusercontent.com/api-evangelist/limitless-ai/refs/heads/main/apis.yml
 name: Limitless
 kind: company
-description: >-
-  Limitless is a personalized AI for meetings with a software assistant and the
-  Limitless Pendant wearable that captures conversations as Lifelogs. The
-  Limitless Developer API gives users programmatic access to their own
-  Lifelogs, Ask AI chat history, and audio downloads, with an MCP endpoint
-  that lets Claude and other MCP-compatible tools query Limitless memory
-  directly. The OpenAPI spec is published and example code is hosted on
-  GitHub.
+description: Limitless is a personalized AI for meetings with a software assistant and the Limitless Pendant
+  wearable that captures conversations as Lifelogs. The Limitless Developer API gives users programmatic
+  access to their own Lifelogs, Ask AI chat history, and audio downloads, with an MCP endpoint that lets
+  Claude and other MCP-compatible tools query Limitless memory directly. The OpenAPI spec is published
+  and example code is hosted on GitHub.
 accessModel:
   pricing: free
   onboarding: unknown
@@ -24,24 +21,23 @@ accessModel:
   method: derived
 image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/limitless-ai.png
 tags:
-  - AI
-  - Wearable
-  - Pendant
-  - Meeting Notes
-  - Lifelogs
-  - Personal AI
-  - API
-  - MCP
-  - OpenAPI
+- AI
+- Wearable
+- Pendant
+- Meeting Notes
+- Lifelogs
+- Personal AI
+- API
+- MCP
+- OpenAPI
 created: '2026-05-23'
-modified: '2026-05-23'
+modified: '2026-08-08'
 specificationVersion: '0.19'
 apis:
 - aid: limitless-ai:pendant
   name: Limitless Pendant
-  description: >-
-    Wearable AI pendant that captures ambient audio, transcribes it, and stores it as Lifelogs in the
-    user's Limitless account.
+  description: Wearable AI pendant that captures ambient audio, transcribes it, and stores it as Lifelogs
+    in the user's Limitless account.
   image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
   humanURL: https://www.limitless.ai/
   baseURL: https://www.limitless.ai
@@ -55,9 +51,8 @@ apis:
     url: https://www.limitless.ai/
 - aid: limitless-ai:meeting-assistant
   name: Limitless Meeting Assistant
-  description: >-
-    Software assistant for meetings — transcripts, summaries, and Ask AI chat over personal memory. Available
-    across desktop and mobile.
+  description: Software assistant for meetings — transcripts, summaries, and Ask AI chat over personal
+    memory. Available across desktop and mobile.
   image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
   humanURL: https://www.limitless.ai/
   baseURL: https://www.limitless.ai
@@ -71,9 +66,8 @@ apis:
     url: https://www.limitless.ai/
 - aid: limitless-ai:mcp-server
   name: Limitless MCP Server
-  description: >-
-    Hosted Model Context Protocol endpoint that connects Claude and other MCP-compatible clients to the
-    user's Limitless memory.
+  description: Hosted Model Context Protocol endpoint that connects Claude and other MCP-compatible clients
+    to the user's Limitless memory.
   image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
   humanURL: https://www.limitless.ai/developers
   baseURL: https://api.limitless.ai/mcp
@@ -137,8 +131,8 @@ apis:
     url: https://github.com/limitless-ai-inc
 - aid: limitless-ai:limitless-ai-limitless-developer-api-api
   name: Limitless Limitless Developer API API
-  description: >-
-    The Limitless Developer API API from Limitless — 1 operation(s) for limitless developer api.
+  description: The Limitless Developer API API from Limitless — 1 operation(s) for limitless developer
+    api.
   humanURL: https://www.limitless.ai/
   baseURL: https://www.limitless.ai
   tags:
@@ -153,26 +147,88 @@ apis:
   - type: GitHubOrg
     url: https://github.com/limitless-ai-inc
 common:
-  - type: AgenticAccess
-    url: agentic-access/limitless-ai-agentic-access.yml
-  - type: DomainSecurity
-    url: security/limitless-ai-domain-security.yml
-  - type: LinkedIn
-    url: https://www.linkedin.com/company/limitless-ai
-  - type: Website
-    url: https://www.limitless.ai/
-  - type: Developers
-    url: https://www.limitless.ai/developers
-  - type: GitHub
-    url: https://github.com/limitless-ai-inc
-  - type: OpenAPI
-    url: https://api.limitless.ai/v1/openapi.yml
-  - type: Plans
-    url: plans/limitless-ai-plans-pricing.yml
-  - type: RateLimits
-    url: rate-limits/limitless-ai-rate-limits.yml
-  - type: FinOps
-    url: finops/limitless-ai-finops.yml
+- type: AgenticAccess
+  url: agentic-access/limitless-ai-agentic-access.yml
+- type: DomainSecurity
+  url: security/limitless-ai-domain-security.yml
+- type: LinkedIn
+  url: https://www.linkedin.com/company/limitless-ai
+- type: Website
+  url: https://www.limitless.ai/
+- type: Developers
+  url: https://www.limitless.ai/developers
+- type: GitHub
+  url: https://github.com/limitless-ai-inc
+- type: OpenAPI
+  url: https://api.limitless.ai/v1/openapi.yml
+- type: Plans
+  url: plans/limitless-ai-plans-pricing.yml
+- type: RateLimits
+  url: rate-limits/limitless-ai-rate-limits.yml
+- type: FinOps
+  url: finops/limitless-ai-finops.yml
+- type: DeveloperPortal
+  url: https://www.limitless.ai/developers
+- type: Documentation
+  url: https://www.limitless.ai/developers
+- type: APIReference
+  url: https://www.limitless.ai/developers#endpoints
+- type: GettingStarted
+  url: https://www.limitless.ai/developers#setup
+- type: SignUp
+  url: https://app.limitless.ai
+- type: Login
+  url: https://app.limitless.ai
+- type: Support
+  url: https://www.limitless.ai/support
+- type: HelpCenter
+  url: https://help.limitless.ai/
+- type: TermsOfService
+  url: https://www.limitless.ai/terms
+- type: PrivacyPolicy
+  url: https://www.limitless.ai/privacy-policy
+- type: Privacy
+  url: https://www.limitless.ai/privacy
+- type: About
+  url: https://www.limitless.ai/about
+- type: Careers
+  url: https://www.limitless.ai/careers
+- type: GitHubOrganization
+  url: https://github.com/limitless-ai-inc
+- type: SourceCode
+  url: https://github.com/limitless-ai-inc/limitless-api-examples
+- type: MCPServer
+  url: mcp/limitless-ai-mcp.yml
+- type: AgentSkill
+  url: skills/_index.yml
+- type: LLMsTxt
+  url: llms/limitless-ai-llms.txt
+- type: Authentication
+  url: authentication/limitless-ai-authentication.yml
+- type: OAuthScopes
+  url: scopes/limitless-ai-scopes.yml
+- type: OpenIDConnect
+  url: well-known/limitless-ai-openid-configuration.json
+- type: WellKnown
+  url: well-known/limitless-ai-well-known.yml
+- type: Conventions
+  url: conventions/limitless-ai-conventions.yml
+- type: Conformance
+  url: conformance/limitless-ai-conformance.yml
+- type: Lifecycle
+  url: lifecycle/limitless-ai-lifecycle.yml
+- type: Deprecation
+  url: https://www.limitless.ai/
+- type: ErrorCatalog
+  url: errors/limitless-ai-problem-types.yml
+- type: DataModel
+  url: data-model/limitless-ai-data-model.yml
+- type: Packages
+  url: packages/limitless-ai-packages.yml
+- type: Overlay
+  url: overlays/limitless-ai-developer-overlay.yaml
 maintainers:
-  - FN: Kin Lane
-    email: kin@apievangelist.com
+- FN: Kin Lane
+  email: kin@apievangelist.com
+x-merged-from:
+- limitless

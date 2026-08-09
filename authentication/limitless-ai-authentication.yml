@@ -1,0 +1,76 @@
+generated: '2026-07-19'
+method: searched
+source: openapi/limitless-developer-openapi-original.yml
+docs: https://www.limitless.ai/developers
+summary:
+  types:
+  - apiKey
+  - oauth2
+  - openIdConnect
+  api_key_in:
+  - header
+  oauth2_flows:
+  - authorizationCode
+  note: >-
+    The published Swagger 2.0 document declares NO securityDefinitions, so no auth
+    profile could be derived mechanically from the spec. This profile was captured
+    from the developer documentation and from the live /.well-known/ discovery
+    documents on api.limitless.ai.
+schemes:
+- name: X-API-Key
+  type: apiKey
+  in: header
+  parameter_name: X-API-Key
+  description: >-
+    Primary authentication for the REST API. Every request must carry the API key in
+    the X-API-Key header. Keys are created in Developer settings in the Limitless
+    Desktop or Web app (https://app.limitless.ai).
+  source: https://www.limitless.ai/developers
+  spec_declared: false
+- name: LimitlessOAuth
+  type: oauth2
+  flow: authorizationCode
+  authorizationUrl: https://api.limitless.ai/api/auth/authorize
+  tokenUrl: https://api.limitless.ai/api/auth/token
+  revocationUrl: https://api.limitless.ai/api/auth/revoke
+  registrationUrl: https://api.limitless.ai/api/auth/register
+  pkce: S256
+  token_endpoint_auth_methods:
+  - client_secret_post
+  - none
+  grant_types:
+  - authorization_code
+  - refresh_token
+  scopes:
+  - openid
+  - profile
+  - email
+  - lifelogs:read
+  description: >-
+    OAuth 2.0 authorization server fronting the hosted MCP server at
+    https://api.limitless.ai/mcp. Supports dynamic client registration (RFC 7591) and
+    advertises itself as an MCP OAuth authorization server (MCP protocol 2025-06-18).
+  source: well-known/limitless-oauth-authorization-server.json
+- name: LimitlessOIDC
+  type: openIdConnect
+  openIdConnectUrl: https://api.limitless.ai/.well-known/openid-configuration
+  issuer: https://api.limitless.ai
+  userinfo_endpoint: https://api.limitless.ai/api/auth/session
+  end_session_endpoint: https://api.limitless.ai/api/auth/signout
+  id_token_signing_alg_values_supported:
+  - HS256
+  claims_supported:
+  - sub
+  - name
+  - email
+  - email_verified
+  - preferred_username
+  - updated_at
+  source: well-known/limitless-openid-configuration.json
+key_management:
+  create: https://app.limitless.ai
+  path: Developer settings -> Create API Key
+  rotation_policy: not published
+related:
+  scopes: scopes/limitless-scopes.yml
+  conventions: conventions/limitless-conventions.yml

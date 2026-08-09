@@ -1,0 +1,58 @@
+generated: '2026-07-19'
+method: derived
+source: openapi/limitless-developer-openapi-original.yml, well-known/
+standards:
+- id: oauth2
+  conforms: true
+  evidence: >-
+    RFC 6749 authorization_code + refresh_token grants advertised at
+    /.well-known/oauth-authorization-server on api.limitless.ai.
+- id: rfc8414-authorization-server-metadata
+  conforms: true
+  evidence: /.well-known/oauth-authorization-server returns 200 with a full metadata document.
+- id: rfc9728-protected-resource-metadata
+  conforms: true
+  evidence: /.well-known/oauth-protected-resource returns 200 naming api.limitless.ai as its own authorization server.
+- id: rfc7636-pkce
+  conforms: true
+  evidence: code_challenge_methods_supported = ["S256"].
+- id: rfc7591-dynamic-client-registration
+  conforms: true
+  evidence: registration_endpoint = https://api.limitless.ai/api/auth/register.
+- id: oidc-discovery
+  conforms: true
+  evidence: /.well-known/openid-configuration returns 200; issuer https://api.limitless.ai; claims_supported published.
+- id: mcp
+  conforms: true
+  evidence: >-
+    Hosted MCP server at https://api.limitless.ai/mcp; authorization-server metadata
+    declares mcp_protocol_version 2025-06-18 and server_type mcp-oauth-authorization-server.
+- id: openapi3
+  conforms: false
+  evidence: The published specification is Swagger 2.0, not OpenAPI 3.x.
+- id: rfc9457-problem-details
+  conforms: false
+  evidence: No application/problem+json responses; errors use an ad-hoc {error, retryAfter} envelope.
+- id: rfc9116-security-txt
+  conforms: false
+  evidence: /.well-known/security.txt returns 404 on both www.limitless.ai and api.limitless.ai.
+- id: rfc8594-sunset-header
+  conforms: false
+  evidence: No Sunset or Deprecation header support documented, despite a published product wind-down.
+- id: cursor-pagination
+  conforms: true
+  evidence: cursor/limit/direction query params with meta.*.nextCursor response fields.
+- id: idempotency
+  conforms: false
+  evidence: No idempotency-key contract; the API exposes only GET and DELETE operations.
+- id: json-api
+  conforms: false
+- id: asyncapi
+  conforms: false
+  evidence: No webhook, streaming, or event surface is documented.
+compliance_program:
+  published: false
+  certifications: []
+  note: >-
+    No trust center, no SOC 2 / ISO 27001 / HIPAA / PCI / FedRAMP claims, and no security
+    or compliance page were found on limitless.ai. No Compliance pointer is emitted.

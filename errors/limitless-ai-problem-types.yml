@@ -1,0 +1,55 @@
+generated: '2026-07-19'
+method: derived
+source: openapi/limitless-developer-openapi-original.yml
+format: ad-hoc-json
+rfc9457: false
+envelope:
+  shape: '{ "error": "<message>", "retryAfter": "<seconds>" }'
+  note: >-
+    Only the 429 response carries a documented schema in the published Swagger 2.0
+    document. The 400/401/404 responses are described in prose with no schema, and
+    Limitless publishes no error-code reference page. No application/problem+json is
+    used anywhere in the spec.
+problems:
+- status: 400
+  title: Invalid time range
+  detail: Invalid parameters - the time range exceeds 2 hours or is otherwise invalid.
+  source_operation: openapi/limitless-developer-openapi-original.yml#downloadAudio
+- status: 401
+  title: Unauthorized
+  detail: Invalid or missing API key. Supply a valid key in the X-API-Key header.
+  source_operation: openapi/limitless-developer-openapi-original.yml#getLifelog
+  also_returned_by:
+  - deleteLifelog
+  - getChats
+  - getChat
+  - deleteChat
+  - downloadAudio
+- status: 404
+  title: Not found
+  detail: The requested lifelog, chat, or audio for the given time range does not exist.
+  source_operation: openapi/limitless-developer-openapi-original.yml#getLifelog
+  also_returned_by:
+  - deleteLifelog
+  - getChat
+  - deleteChat
+  - downloadAudio
+- status: 429
+  title: Too Many Requests
+  detail: >-
+    Rate limit exceeded. The documented default is 180 requests per minute per API key.
+    The body carries `error` and `retryAfter` (seconds to wait before retrying).
+  schema:
+    error: string
+    retryAfter: string
+  source_operation: openapi/limitless-developer-openapi-original.yml#getLifelogs
+  also_returned_by:
+  - getLifelog
+  - deleteLifelog
+  - getChats
+  - getChat
+  - downloadAudio
+gaps:
+- No machine-readable error `code` field is documented on any response.
+- No RFC 9457 problem+json media type.
+- No published error-code registry or remediation reference.

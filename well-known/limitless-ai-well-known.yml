@@ -1,0 +1,36 @@
+generated: '2026-07-19'
+method: searched
+source: live probe of /.well-known/ on limitless.ai hosts
+hosts:
+- host: https://api.limitless.ai
+  documents:
+  - path: /.well-known/oauth-authorization-server
+    status: 200
+    file: limitless-oauth-authorization-server.json
+    standard: RFC 8414
+  - path: /.well-known/openid-configuration
+    status: 200
+    file: limitless-openid-configuration.json
+    standard: OpenID Connect Discovery 1.0
+  - path: /.well-known/oauth-protected-resource
+    status: 200
+    file: limitless-oauth-protected-resource.json
+    standard: RFC 9728
+  - path: /.well-known/security.txt
+    status: 404
+  - path: /.well-known/api-catalog
+    status: 404
+- host: https://www.limitless.ai
+  documents:
+  - path: /.well-known/security.txt
+    status: 404
+  - path: /.well-known/openid-configuration
+    status: 404
+  - path: /.well-known/ai-plugin.json
+    status: 404
+notes: >-
+  api.limitless.ai publishes a complete OAuth 2.0 / OpenID Connect discovery surface
+  that exists specifically to authorize the hosted MCP server at
+  https://api.limitless.ai/mcp - the authorization-server document advertises
+  "server_type: mcp-oauth-authorization-server" and "mcp_protocol_version: 2025-06-18".
+  No security.txt (RFC 9116) and no api-catalog (RFC 9727) are published on any host.

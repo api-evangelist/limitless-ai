@@ -1,0 +1,93 @@
+overlay: 1.0.0
+info:
+  title: API Evangelist enhancements for the Limitless Developer API
+  version: 1.0.0
+extends: openapi/limitless-developer-openapi-original.yml
+x-generated: '2026-07-19'
+x-method: generated
+x-source: >-
+  API Evangelist enrichment pipeline. Captures enhancements derived from
+  https://www.limitless.ai/developers and the live /.well-known/ discovery documents on
+  api.limitless.ai. The harvested specification is never mutated.
+actions:
+- target: $.info
+  description: >-
+    Record contact, licensing posture, and the lifecycle risk that the published spec
+    omits entirely.
+  update:
+    contact:
+      name: Limitless Developer Support
+      url: https://www.limitless.ai/developers
+    x-apievangelist-enriched: '2026-07-19'
+    x-lifecycle-risk: >-
+      Limitless was acquired by Meta. Pendant sales ended 2025-12-05 and support is
+      committed only "throughout 2026". Treat this API as export-oriented.
+    x-lifecycle-artifact: lifecycle/limitless-lifecycle.yml
+- target: $
+  description: >-
+    Add the security definitions the published Swagger 2.0 document is missing. The API
+    requires an X-API-Key header on every request, which the spec never declares.
+  update:
+    securityDefinitions:
+      ApiKeyAuth:
+        type: apiKey
+        in: header
+        name: X-API-Key
+        description: >-
+          API key created in Developer settings at https://app.limitless.ai. Required on
+          every request.
+    security:
+    - ApiKeyAuth: []
+    x-mcp-server:
+      url: https://api.limitless.ai/mcp
+      transport: http
+      protocol_version: '2025-06-18'
+      authorization: https://api.limitless.ai/.well-known/oauth-authorization-server
+    x-agentic-access-artifact: agentic-access/limitless-agentic-access.yml
+- target: $.paths['/v1/lifelogs'].get
+  description: Tag and document the rate limit and pagination contract on the primary read operation.
+  update:
+    tags:
+    - Lifelogs
+    x-rate-limit: 180 requests per minute per API key
+    x-pagination:
+      style: cursor
+      cursor_param: cursor
+      next_field: meta.lifelogs.nextCursor
+      max_limit: 100
+      note: The cursor parameter is not supported when `search` is supplied.
+- target: $.paths['/v1/lifelogs/{id}']
+  description: Tag the single-lifelog operations.
+  update:
+    x-tags:
+    - Lifelogs
+- target: $.paths['/v1/chats'].get
+  description: Tag and document pagination on the chats collection.
+  update:
+    tags:
+    - Chats
+    x-pagination:
+      style: cursor
+      cursor_param: cursor
+      next_field: meta.chats.nextCursor
+- target: $.paths['/v1/chats/{id}']
+  description: Tag the single-chat operations.
+  update:
+    x-tags:
+    - Chats
+- target: $.paths['/v1/download-audio'].get
+  description: Tag and record the hard 2-hour window on audio export.
+  update:
+    tags:
+    - Audio
+    x-constraint: Maximum 2 hours of audio per request; longer ranges return 400.
+    x-response-format: Ogg Opus
+- target: $.definitions.Lifelog
+  description: Point at the derived entity graph for the core object.
+  update:
+    x-data-model: data-model/limitless-data-model.yml
+    x-primary-entity: true
+- target: $.definitions.Chat
+  description: Point at the derived entity graph for Ask AI conversations.
+  update:
+    x-data-model: data-model/limitless-data-model.yml

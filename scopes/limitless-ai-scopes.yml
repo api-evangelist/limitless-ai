@@ -1,0 +1,47 @@
+generated: '2026-07-19'
+method: searched
+source: well-known/limitless-oauth-authorization-server.json
+docs: https://www.limitless.ai/developers
+note: >-
+  Scopes are NOT declared in the published Swagger 2.0 document (it has no
+  securityDefinitions). They come from the live RFC 8414 / OIDC Discovery documents on
+  api.limitless.ai, which back the hosted MCP server. Limitless publishes no separate
+  scopes/permissions reference page.
+schemes:
+- name: LimitlessOAuth
+  source: well-known/limitless-oauth-authorization-server.json
+  flows:
+  - flow: authorizationCode
+    authorizationUrl: https://api.limitless.ai/api/auth/authorize
+    tokenUrl: https://api.limitless.ai/api/auth/token
+    pkce: S256
+scopes:
+- scope: openid
+  description: Standard OpenID Connect scope; requests an ID token identifying the Limitless user.
+  flows:
+  - authorizationCode
+  sources:
+  - well-known/limitless-openid-configuration.json
+- scope: profile
+  description: Access to basic profile claims (name, preferred_username, updated_at).
+  flows:
+  - authorizationCode
+  sources:
+  - well-known/limitless-openid-configuration.json
+- scope: email
+  description: Access to the email and email_verified claims.
+  flows:
+  - authorizationCode
+  sources:
+  - well-known/limitless-openid-configuration.json
+- scope: lifelogs:read
+  description: >-
+    Read access to the authenticated user's lifelogs - the Pendant recordings,
+    transcripts, and structured contents exposed by GET /v1/lifelogs and
+    GET /v1/lifelogs/{id}. This is the only resource-level scope Limitless advertises;
+    note that the REST API's DELETE operations have no corresponding write/delete scope,
+    which implies deletion is only reachable with an X-API-Key, not an OAuth token.
+  flows:
+  - authorizationCode
+  sources:
+  - well-known/limitless-oauth-authorization-server.json
