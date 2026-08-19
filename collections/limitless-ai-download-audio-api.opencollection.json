@@ -1,0 +1,49 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Limitless Developer Chats Download Audio API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Download Audio",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Downloads audio for a specified time range.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1/download-audio",
+            "params": [
+              {
+                "name": "audioSource",
+                "value": "",
+                "type": "query",
+                "description": "Audio source to download from."
+              },
+              {
+                "name": "startMs",
+                "value": "",
+                "type": "query",
+                "description": "Start time in milliseconds. Must be non-negative and less than endMs."
+              },
+              {
+                "name": "endMs",
+                "value": "",
+                "type": "query",
+                "description": "End time in milliseconds. Must be non-negative and greater than startMs. The duration between startMs and endMs cannot exceed 2 hours (7,200,000 ms)."
+              }
+            ]
+          },
+          "docs": "Downloads audio in Ogg Opus format for a given time range from the specified audio source. The requested time range must be 2 hours (7,200,000 ms) or less."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

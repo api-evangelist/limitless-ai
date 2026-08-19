@@ -33,8 +33,13 @@ install:
     note: Documented by Limitless as available to ChatGPT Pro and Workspace accounts only.
 tools:
   status: not-enumerated
-  note: >-
-    Limitless does not publish a tool manifest and the endpoint requires OAuth, so the
-    tool list was not enumerated. The underlying REST surface the server fronts is
-    captured in openapi/limitless-developer-openapi-original.yml (8 operations over
-    lifelogs, chats, and audio download).
+  note: Limitless does not publish a tool manifest and the endpoint requires OAuth, so the tool list was
+    not enumerated. The underlying REST surface the server fronts is captured in openapi/limitless-developer-openapi-original.yml
+    (8 operations over lifelogs, chats, and audio download).
+deployment:
+  mode: remote
+  endpoint: https://api.limitless.ai/mcp
+  verified: probed
+  probe: gated
+  checked: '2026-08-12'
+  source: catalog MCP census

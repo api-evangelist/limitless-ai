@@ -1,0 +1,29 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Limitless Developer Chats Limitless Developer API API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Limitless Developer API",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Redirect to the developer docs.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/"
+          },
+          "docs": "Redirects to the developer docs."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

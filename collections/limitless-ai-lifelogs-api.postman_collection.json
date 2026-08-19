@@ -1,0 +1,830 @@
+{
+  "item": [
+    {
+      "id": "c0139b3d-d60f-43dd-ad8f-cd3609b3d4c0",
+      "name": "Lifelogs",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "2f0192a4-aa22-4fa1-a961-466985f717f3",
+          "name": "Returns a list of lifelogs.",
+          "request": {
+            "name": "Returns a list of lifelogs.",
+            "description": {
+              "content": "Returns a list of lifelogs based on specified time range or date. If a search parameter is provided, performs hybrid search across the lifelogs. Pagination is not supported when using the search parameter.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "lifelogs"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "timezone",
+                  "value": "<string>",
+                  "description": "IANA timezone specifier. If missing, UTC is used."
+                },
+                {
+                  "disabled": false,
+                  "key": "date",
+                  "value": "<date>",
+                  "description": "Will return all entries beginning on a date in the given timezone (YYYY-MM-DD)."
+                },
+                {
+                  "disabled": false,
+                  "key": "start",
+                  "value": "<dateTime>",
+                  "description": "Start datetime in modified ISO-8601 format (YYYY-MM-DD or YYYY-MM-DD HH:mm:SS). Timezones/offsets will be ignored."
+                },
+                {
+                  "disabled": false,
+                  "key": "end",
+                  "value": "<dateTime>",
+                  "description": "End datetime in modified ISO-8601 format (YYYY-MM-DD or YYYY-MM-DD HH:mm:SS). Timezones/offsets will be ignored."
+                },
+                {
+                  "disabled": false,
+                  "key": "cursor",
+                  "value": "<string>",
+                  "description": "Cursor for pagination to retrieve the next set of entries. Will not work when `search` parameter is provided."
+                },
+                {
+                  "disabled": false,
+                  "key": "direction",
+                  "value": "desc",
+                  "description": "Sort direction for entries."
+                },
+                {
+                  "disabled": false,
+                  "key": "includeMarkdown",
+                  "value": "true",
+                  "description": "Whether to include markdown content in the response."
+                },
+                {
+                  "disabled": false,
+                  "key": "includeHeadings",
+                  "value": "true",
+                  "description": "Whether to include headings in the response."
+                },
+                {
+                  "disabled": false,
+                  "key": "isStarred",
+                  "value": "<boolean>",
+                  "description": "Filter entries by their starred status."
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "<integer>",
+                  "description": "Maximum number of entries to return. Upper limit is 100."
+                },
+                {
+                  "disabled": false,
+                  "key": "includeContents",
+                  "value": "true",
+                  "description": "Whether to include structured contents in the response. When false, the contents array will be empty. Note that contents are automatically excluded when more than 25 results are returned, regardless of this parameter."
+                },
+                {
+                  "disabled": false,
+                  "key": "search",
+                  "value": "<string>",
+                  "description": "Search query to perform hybrid search across lifelogs. When provided, other filtering parameters are applied as additional constraints. You cannot paginate requests when using this parameter. Upper limit of 100 results. Hybrid search is a combination of keyword search and semantic search; you can therefore send:\n- semantic queries, like \"place bob recommended at dinner\"\n- boolean keyword search, like \"blue OR red\"\n(While \"AND\" queries are supported, sending \"red AND blue\" is the same as sending \"red blue\").\n"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "*/*"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "f3b73808-4e7d-4183-8346-e2fbfb858788",
+              "name": "Successful response with entries.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "lifelogs"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "timezone",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "date",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "start",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "end",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "direction",
+                      "value": "desc"
+                    },
+                    {
+                      "key": "includeMarkdown",
+                      "value": "true"
+                    },
+                    {
+                      "key": "includeHeadings",
+                      "value": "true"
+                    },
+                    {
+                      "key": "isStarred",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "includeContents",
+                      "value": "true"
+                    },
+                    {
+                      "key": "search",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{\n  \"data\": {\n    \"lifelogs\": [\n      {\n        \"id\": \"string\",\n        \"title\": \"string\",\n        \"markdown\": \"string\",\n        \"contents\": [\n          {\n            \"type\": \"string\",\n            \"content\": \"string\",\n            \"startTime\": \"2018-03-29T06:41:17.771Z\",\n            \"endTime\": \"1969-06-17T01:03:17.425Z\",\n            \"startOffsetMs\": 6400,\n            \"endOffsetMs\": 8127,\n            \"children\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"speakerName\": \"string\",\n            \"speakerIdentifier\": \"user\"\n          },\n          {\n            \"type\": \"string\",\n            \"content\": \"string\",\n            \"startTime\": \"1954-01-12T06:25:15.540Z\",\n            \"endTime\": \"2007-05-09T04:34:13.509Z\",\n            \"startOffsetMs\": 4433,\n            \"endOffsetMs\": 427,\n            \"children\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"speakerName\": \"string\",\n            \"speakerIdentifier\": \"user\"\n          }\n        ],\n        \"startTime\": \"1975-01-19T18:18:17.456Z\",\n        \"endTime\": \"1983-03-02T12:39:12.697Z\",\n        \"isStarred\": false,\n        \"updatedAt\": \"1952-09-07T05:32:16.874Z\"\n      },\n      {\n        \"id\": \"string\",\n        \"title\": \"string\",\n        \"markdown\": \"string\",\n        \"contents\": [\n          {\n            \"type\": \"string\",\n            \"content\": \"string\",\n            \"startTime\": \"1955-08-15T00:40:21.970Z\",\n            \"endTime\": \"1998-09-07T05:50:26.171Z\",\n            \"startOffsetMs\": 7930,\n            \"endOffsetMs\": 1755,\n            \"children\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"speakerName\": \"string\",\n            \"speakerIdentifier\": \"user\"\n          },\n          {\n            \"type\": \"string\",\n            \"content\": \"string\",\n            \"startTime\": \"2024-02-18T23:04:20.949Z\",\n            \"endTime\": \"1996-03-27T22:33:04.457Z\",\n            \"startOffsetMs\": 7909,\n            \"endOffsetMs\": 916,\n            \"children\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"speakerName\": \"string\",\n            \"speakerIdentifier\": \"user\"\n          }\n        ],\n        \"startTime\": \"2025-06-27T11:03:32.789Z\",\n        \"endTime\": \"2023-07-20T15:21:38.442Z\",\n        \"isStarred\": false,\n        \"updatedAt\": \"1994-09-30T11:11:06.008Z\"\n      }\n    ]\n  },\n  \"meta\": {\n    \"lifelogs\": {\n      \"nextCursor\": \"string\",\n      \"count\": 7675\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "a0c05077-dfae-44d1-9ad3-f017ffd84bcd",
+              "name": "Too Many Requests - Rate limit exceeded.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "lifelogs"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "timezone",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "date",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "start",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "end",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "direction",
+                      "value": "desc"
+                    },
+                    {
+                      "key": "includeMarkdown",
+                      "value": "true"
+                    },
+                    {
+                      "key": "includeHeadings",
+                      "value": "true"
+                    },
+                    {
+                      "key": "isStarred",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "includeContents",
+                      "value": "true"
+                    },
+                    {
+                      "key": "search",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\",\n  \"retryAfter\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c4d0dff8-99fc-4b46-a21a-ddb6749d856d",
+          "name": "Returns a single lifelog by ID.",
+          "request": {
+            "name": "Returns a single lifelog by ID.",
+            "description": {
+              "content": "Returns a specific lifelog entry by its unique identifier.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "lifelogs",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "timezone",
+                  "value": "<string>",
+                  "description": "IANA timezone specifier. If missing, UTC is used."
+                },
+                {
+                  "disabled": false,
+                  "key": "includeMarkdown",
+                  "value": "true",
+                  "description": "Whether to include markdown content in the response."
+                },
+                {
+                  "disabled": false,
+                  "key": "includeHeadings",
+                  "value": "true",
+                  "description": "Whether to include headings in the response."
+                },
+                {
+                  "disabled": false,
+                  "key": "includeContents",
+                  "value": "true",
+                  "description": "Whether to include structured contents in the response. When false, the contents array will be empty."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) Unique identifier of the lifelog to retrieve."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "*/*"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "905a7930-bcfa-497a-95af-a87be27436c6",
+              "name": "Successful response with a single lifelog entry.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "lifelogs",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "timezone",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "includeMarkdown",
+                      "value": "true"
+                    },
+                    {
+                      "key": "includeHeadings",
+                      "value": "true"
+                    },
+                    {
+                      "key": "includeContents",
+                      "value": "true"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Unique identifier of the lifelog to retrieve."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{\n  \"data\": {\n    \"lifelog\": {\n      \"id\": \"string\",\n      \"title\": \"string\",\n      \"markdown\": \"string\",\n      \"contents\": [\n        {\n          \"type\": \"string\",\n          \"content\": \"string\",\n          \"startTime\": \"1947-01-19T12:18:03.373Z\",\n          \"endTime\": \"2008-09-09T12:32:01.810Z\",\n          \"startOffsetMs\": 9893,\n          \"endOffsetMs\": 885,\n          \"children\": [\n            {\n              \"value\": \"<Circular reference to #/components/schemas/ContentNode detected>\"\n            },\n            {\n              \"value\": \"<Circular reference to #/components/schemas/ContentNode detected>\"\n            }\n          ],\n          \"speakerName\": \"string\",\n          \"speakerIdentifier\": \"user\"\n        },\n        {\n          \"type\": \"string\",\n          \"content\": \"string\",\n          \"startTime\": \"1987-04-05T18:25:11.890Z\",\n          \"endTime\": \"1997-11-09T12:47:45.575Z\",\n          \"startOffsetMs\": 2025,\n          \"endOffsetMs\": 1202,\n          \"children\": [\n            {\n              \"value\": \"<Circular reference to #/components/schemas/ContentNode detected>\"\n            },\n            {\n              \"value\": \"<Circular reference to #/components/schemas/ContentNode detected>\"\n            }\n          ],\n          \"speakerName\": \"string\",\n          \"speakerIdentifier\": \"user\"\n        }\n      ],\n      \"startTime\": \"2026-01-21T22:43:57.273Z\",\n      \"endTime\": \"1987-05-10T12:18:58.317Z\",\n      \"isStarred\": false,\n      \"updatedAt\": \"1988-10-22T22:44:26.765Z\"\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d52342a5-7e1b-44b9-83db-2d9fe8ba49e7",
+              "name": "Unauthorized - Invalid or missing API key.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "lifelogs",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "timezone",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "includeMarkdown",
+                      "value": "true"
+                    },
+                    {
+                      "key": "includeHeadings",
+                      "value": "true"
+                    },
+                    {
+                      "key": "includeContents",
+                      "value": "true"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Unique identifier of the lifelog to retrieve."
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "eb0d465b-39e1-435c-8ebc-b2586c1877fe",
+              "name": "Lifelog entry not found.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "lifelogs",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "timezone",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "includeMarkdown",
+                      "value": "true"
+                    },
+                    {
+                      "key": "includeHeadings",
+                      "value": "true"
+                    },
+                    {
+                      "key": "includeContents",
+                      "value": "true"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Unique identifier of the lifelog to retrieve."
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "87fac8a4-b947-4ab4-b1af-3b7d827ef96e",
+              "name": "Too Many Requests - Rate limit exceeded.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "lifelogs",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "timezone",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "includeMarkdown",
+                      "value": "true"
+                    },
+                    {
+                      "key": "includeHeadings",
+                      "value": "true"
+                    },
+                    {
+                      "key": "includeContents",
+                      "value": "true"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Unique identifier of the lifelog to retrieve."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\",\n  \"retryAfter\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "976f2080-589f-40ac-991b-90b2a607c2aa",
+          "name": "Deletes a single lifelog by ID.",
+          "request": {
+            "name": "Deletes a single lifelog by ID.",
+            "description": {
+              "content": "Permanently deletes a specific lifelog entry by its unique identifier.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "lifelogs",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) Unique identifier of the lifelog to delete."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "*/*"
+              }
+            ],
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "611f7139-b453-47e4-a457-7b6b3e162a68",
+              "name": "Lifelog successfully deleted.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "lifelogs",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Unique identifier of the lifelog to delete."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{\n  \"success\": true\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "05366394-2eeb-4d9e-bc21-87bdc13f6eb6",
+              "name": "Unauthorized - Invalid or missing API key.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "lifelogs",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Unique identifier of the lifelog to delete."
+                    }
+                  ]
+                },
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "67b36d77-d3e1-4b38-942b-d44b3ff5efc8",
+              "name": "Lifelog entry not found.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "lifelogs",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Unique identifier of the lifelog to delete."
+                    }
+                  ]
+                },
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "7c9dbcff-64a0-4006-974f-26d27e9acb6e",
+              "name": "Too Many Requests - Rate limit exceeded.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "lifelogs",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Unique identifier of the lifelog to delete."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\",\n  \"retryAfter\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.limitless.ai",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "927d7830-34b4-41b4-b856-d32f90c1b1a4",
+    "name": "Limitless Developer Chats Lifelogs API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "API for accessing lifelogs, providing transparency and portability to user data.\n\n## Rate Limiting\nThe API implements rate limiting to ensure fair usage and protect against abuse.\n- **Default Rate Limit:** 180 requests per minute per API key\n- **Rate Limit Response:** When exceeded, returns 429 Too Many Requests with retry information\n",
+      "type": "text/plain"
+    }
+  }
+}
