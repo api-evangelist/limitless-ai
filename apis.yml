@@ -32,7 +32,7 @@ tags:
 - OpenAPI
 created: '2026-05-23'
 modified: '2026-08-08'
-specificationVersion: '0.19'
+specificationVersion: '0.23'
 apis:
 - aid: limitless-ai:pendant
   name: Limitless Pendant
