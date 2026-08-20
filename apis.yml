@@ -21,6 +21,15 @@ accessModel:
   method: derived
 image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/limitless-ai.png
 tags:
+- Artificial Intelligence
+- Wearable
+- Pendant
+- Meeting Notes
+- Lifelogs
+- Personal AI
+- MCP
+- OpenAPI
+tags_raw:
 - AI
 - Wearable
 - Pendant
@@ -72,6 +81,10 @@ apis:
   humanURL: https://www.limitless.ai/developers
   baseURL: https://api.limitless.ai/mcp
   tags:
+  - MCP
+  - Claude
+  - Memory
+  tags_raw:
   - MCP
   - Model Context Protocol
   - Claude
