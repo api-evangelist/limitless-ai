@@ -7,6 +7,18 @@ description: Limitless is a personalized AI for meetings with a software assista
   access to their own Lifelogs, Ask AI chat history, and audio downloads, with an MCP endpoint that lets
   Claude and other MCP-compatible tools query Limitless memory directly. The OpenAPI spec is published
   and example code is hosted on GitHub.
+deliveryModel:
+  model: saas
+  open_source: false
+  commercial: true
+  callable_host: true
+  label: Hosted service · you call their endpoint
+  confidence: high
+  source:
+  - openapi
+  - pricing
+  generated: '2026-08-28'
+  method: derived
 accessModel:
   pricing: free
   onboarding: unknown
