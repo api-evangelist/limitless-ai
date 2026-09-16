@@ -52,7 +52,7 @@ tags_raw:
 - MCP
 - OpenAPI
 created: '2026-05-23'
-modified: '2026-08-08'
+modified: '2026-09-16'
 specificationVersion: '0.23'
 apis:
 - aid: limitless-ai:pendant
@@ -155,7 +155,7 @@ apis:
   - type: GitHubOrg
     url: https://github.com/limitless-ai-inc
 - aid: limitless-ai:limitless-ai-limitless-developer-api-api
-  name: Limitless Limitless Developer API API
+  name: Limitless Developer API
   description: The Limitless Developer API API from Limitless — 1 operation(s) for limitless developer
     api.
   humanURL: https://www.limitless.ai/
