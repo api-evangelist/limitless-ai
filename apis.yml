@@ -34,7 +34,7 @@ accessModel:
 image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/limitless-ai.png
 tags:
 - Artificial Intelligence
-- Wearable
+- Wearables
 - Pendant
 - Meeting Notes
 - Lifelogs
@@ -63,6 +63,11 @@ apis:
   humanURL: https://www.limitless.ai/
   baseURL: https://www.limitless.ai
   tags:
+  - Hardware
+  - Wearables
+  - Pendant
+  - Lifelogs
+  tags_raw:
   - Hardware
   - Wearable
   - Pendant
