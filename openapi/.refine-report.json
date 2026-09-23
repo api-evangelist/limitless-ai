@@ -1,10 +1,7 @@
 {
   "provider": "limitless-ai",
   "sources": [
-    "limitless-ai-chats-api-openapi.yml",
-    "limitless-ai-download-audio-api-openapi.yml",
-    "limitless-ai-lifelogs-api-openapi.yml",
-    "limitless-ai-limitless-developer-api-api-openapi.yml"
+    "_original/limitless-ai-developer-openapi-original.yml"
   ],
   "outputs": [
     "limitless-ai-chats-api-openapi.yml",
@@ -15,6 +12,29 @@
   "archived": [],
   "errors": [],
   "warnings": [],
-  "notes": [],
-  "skipped": []
+  "notes": [
+    "1 archived document(s) dropped as subsets of other archived documents",
+    "sourced from openapi/_original/ (1 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "limitless-ai-developer-openapi-original.yml: upgraded swagger 2.0 -> OpenAPI 3.2.0",
+    "limitless-ai-developer-openapi-original.yml: tagged paths GET / -> Limitless Developer API",
+    "limitless-ai-developer-openapi-original.yml: tagged paths GET /v1/lifelogs -> Lifelogs",
+    "limitless-ai-developer-openapi-original.yml: tagged paths GET /v1/lifelogs/{id} -> Lifelogs",
+    "limitless-ai-developer-openapi-original.yml: tagged paths DELETE /v1/lifelogs/{id} -> Lifelogs",
+    "limitless-ai-developer-openapi-original.yml: tagged paths GET /v1/chats -> Chats",
+    "limitless-ai-developer-openapi-original.yml: tagged paths GET /v1/chats/{id} -> Chats",
+    "limitless-ai-developer-openapi-original.yml: tagged paths DELETE /v1/chats/{id} -> Chats",
+    "limitless-ai-developer-openapi-original.yml: tagged paths GET /v1/download-audio -> Download Audio",
+    "limitless-ai-developer-openapi-original.yml: declared missing tag: Chats",
+    "limitless-ai-developer-openapi-original.yml: declared missing tag: Download Audio",
+    "limitless-ai-developer-openapi-original.yml: declared missing tag: Lifelogs",
+    "limitless-ai-developer-openapi-original.yml: declared missing tag: Limitless Developer API",
+    "apis.yml register: already-registered"
+  ],
+  "skipped": [
+    "_original/limitless-ai-openapi.yml: archived document superseded by a larger archived document",
+    "limitless-ai-chats-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "limitless-ai-download-audio-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "limitless-ai-lifelogs-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "limitless-ai-limitless-developer-api-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }
