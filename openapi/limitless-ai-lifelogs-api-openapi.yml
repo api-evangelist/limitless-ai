@@ -227,6 +227,18 @@ paths:
       - Lifelogs
 components:
   schemas:
+    LifelogsResponse:
+      type: object
+      properties:
+        data:
+          $ref: '#/components/schemas/LifelogsResponseData'
+        meta:
+          $ref: '#/components/schemas/Meta'
+    LifelogResponseData:
+      type: object
+      properties:
+        lifelog:
+          $ref: '#/components/schemas/Lifelog'
     Lifelog:
       type: object
       properties:
@@ -261,16 +273,6 @@ components:
           type: string
           format: date-time
           description: Last update time of the entry in ISO format in given timezone.
-    LifelogResponseData:
-      type: object
-      properties:
-        lifelog:
-          $ref: '#/components/schemas/Lifelog'
-    LifelogResponse:
-      type: object
-      properties:
-        data:
-          $ref: '#/components/schemas/LifelogResponseData'
     LifelogsResponseData:
       type: object
       properties:
@@ -278,6 +280,16 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Lifelog'
+    LifelogResponse:
+      type: object
+      properties:
+        data:
+          $ref: '#/components/schemas/LifelogResponseData'
+    Meta:
+      type: object
+      properties:
+        lifelogs:
+          $ref: '#/components/schemas/MetaLifelogs'
     ContentNode:
       type: object
       properties:
@@ -318,11 +330,6 @@ components:
           description: Speaker identifier, when applicable. Set to "user" when the speaker has been identified as the user.
           enum:
           - user
-    Meta:
-      type: object
-      properties:
-        lifelogs:
-          $ref: '#/components/schemas/MetaLifelogs'
     MetaLifelogs:
       type: object
       properties:
@@ -334,10 +341,3 @@ components:
         count:
           type: integer
           description: Number of lifelogs in the current response.
-    LifelogsResponse:
-      type: object
-      properties:
-        data:
-          $ref: '#/components/schemas/LifelogsResponseData'
-        meta:
-          $ref: '#/components/schemas/Meta'

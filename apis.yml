@@ -9,15 +9,19 @@ description: Limitless is a personalized AI for meetings with a software assista
   and example code is hosted on GitHub.
 deliveryModel:
   model: saas
-  open_source: false
+  license_evidence:
+    not_product:
+    - limitless-ai-inc/limitless-api-examples
+  open_source: unknown
   commercial: true
   callable_host: true
   label: Hosted service · you call their endpoint
-  confidence: high
+  confidence: low
   source:
   - openapi
   - pricing
-  generated: '2026-08-28'
+  - repository-not-product
+  generated: '2026-09-25'
   method: derived
 accessModel:
   pricing: free
@@ -61,7 +65,6 @@ apis:
     in the user's Limitless account.
   image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
   humanURL: https://www.limitless.ai/
-  baseURL: https://www.limitless.ai
   tags:
   - Hardware
   - Wearables
@@ -81,7 +84,6 @@ apis:
     memory. Available across desktop and mobile.
   image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
   humanURL: https://www.limitless.ai/
-  baseURL: https://www.limitless.ai
   tags:
   - Meetings
   - Assistant
@@ -115,7 +117,7 @@ apis:
   name: Limitless Chats API
   description: The Chats API from Limitless — 2 operation(s) for chats.
   humanURL: https://www.limitless.ai/
-  baseURL: https://www.limitless.ai
+  baseURL: https://api.limitless.ai
   tags:
   - Chats
   properties:
@@ -131,7 +133,7 @@ apis:
   name: Limitless Download Audio API
   description: The Download Audio API from Limitless — 1 operation(s) for download audio.
   humanURL: https://www.limitless.ai/
-  baseURL: https://www.limitless.ai
+  baseURL: https://api.limitless.ai
   tags:
   - Download Audio
   properties:
@@ -147,7 +149,7 @@ apis:
   name: Limitless Lifelogs API
   description: The Lifelogs API from Limitless — 2 operation(s) for lifelogs.
   humanURL: https://www.limitless.ai/
-  baseURL: https://www.limitless.ai
+  baseURL: https://api.limitless.ai
   tags:
   - Lifelogs
   properties:
@@ -164,7 +166,7 @@ apis:
   description: The Limitless Developer API API from Limitless — 1 operation(s) for limitless developer
     api.
   humanURL: https://www.limitless.ai/
-  baseURL: https://www.limitless.ai
+  baseURL: https://api.limitless.ai
   tags:
   - Limitless Developer API
   properties:
