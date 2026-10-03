@@ -150,30 +150,23 @@ paths:
       - Chats
 components:
   schemas:
-    ToolCall:
+    ChatsResponseData:
       type: object
       properties:
-        id:
-          type: string
-          description: Unique identifier for the tool call.
-        toolName:
-          type: string
-          description: Name of the tool that was called.
-        args:
-          type:
-          - object
-          - 'null'
-          description: Arguments passed to the tool.
-    ChatResponse:
+        chats:
+          type: array
+          items:
+            $ref: '#/components/schemas/Chat'
+    ChatsResponse:
       type: object
       properties:
         data:
-          $ref: '#/components/schemas/ChatResponseData'
-    ChatResponseData:
-      type: object
-      properties:
-        chat:
-          $ref: '#/components/schemas/Chat'
+          $ref: '#/components/schemas/ChatsResponseData'
+        meta:
+          type: object
+          properties:
+            chats:
+              $ref: '#/components/schemas/MetaChats'
     ToolResult:
       type: object
       properties:
@@ -203,6 +196,56 @@ components:
                 type: string
                 description: ID of the entry returned by the tool.
           description: Limited information about entries returned by the tool.
+    ChatResponseData:
+      type: object
+      properties:
+        chat:
+          $ref: '#/components/schemas/Chat'
+    Chat:
+      type: object
+      properties:
+        id:
+          type: string
+          description: Unique identifier for the chat.
+        summary:
+          type:
+          - string
+          - 'null'
+          description: Brief summary of the chat conversation.
+        createdAt:
+          type: string
+          format: date-time
+          description: Timestamp when the chat was created (ISO 8601 string).
+        startedAt:
+          type: string
+          format: date-time
+          description: Timestamp of the first message in the chat (ISO 8601 string).
+        messages:
+          type: array
+          items:
+            $ref: '#/components/schemas/ChatMessage'
+          description: List of messages in the chat.
+        visibility:
+          type: string
+          enum:
+          - private
+          - public
+          - internal
+          description: Visibility setting for the chat.
+    ToolCall:
+      type: object
+      properties:
+        id:
+          type: string
+          description: Unique identifier for the tool call.
+        toolName:
+          type: string
+          description: Name of the tool that was called.
+        args:
+          type:
+          - object
+          - 'null'
+          description: Arguments passed to the tool.
     MetaChats:
       type: object
       properties:
@@ -214,32 +257,11 @@ components:
         count:
           type: integer
           description: Number of chats in the current response.
-    ChatsResponseData:
-      type: object
-      properties:
-        chats:
-          type: array
-          items:
-            $ref: '#/components/schemas/Chat'
-    ChatsResponse:
+    ChatResponse:
       type: object
       properties:
         data:
-          $ref: '#/components/schemas/ChatsResponseData'
-        meta:
-          type: object
-          properties:
-            chats:
-              $ref: '#/components/schemas/MetaChats'
-    DeleteChatResponse:
-      type: object
-      properties:
-        data:
-          type: object
-          properties:
-            success:
-              type: boolean
-              description: Indicates whether the deletion was successful.
+          $ref: '#/components/schemas/ChatResponseData'
     ChatMessage:
       type: object
       properties:
@@ -285,34 +307,12 @@ components:
               - string
               - 'null'
               description: Name of the user.
-    Chat:
+    DeleteChatResponse:
       type: object
       properties:
-        id:
-          type: string
-          description: Unique identifier for the chat.
-        summary:
-          type:
-          - string
-          - 'null'
-          description: Brief summary of the chat conversation.
-        createdAt:
-          type: string
-          format: date-time
-          description: Timestamp when the chat was created (ISO 8601 string).
-        startedAt:
-          type: string
-          format: date-time
-          description: Timestamp of the first message in the chat (ISO 8601 string).
-        messages:
-          type: array
-          items:
-            $ref: '#/components/schemas/ChatMessage'
-          description: List of messages in the chat.
-        visibility:
-          type: string
-          enum:
-          - private
-          - public
-          - internal
-          description: Visibility setting for the chat.
+        data:
+          type: object
+          properties:
+            success:
+              type: boolean
+              description: Indicates whether the deletion was successful.

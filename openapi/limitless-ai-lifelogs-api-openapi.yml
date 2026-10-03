@@ -227,59 +227,6 @@ paths:
       - Lifelogs
 components:
   schemas:
-    LifelogsResponse:
-      type: object
-      properties:
-        data:
-          $ref: '#/components/schemas/LifelogsResponseData'
-        meta:
-          $ref: '#/components/schemas/Meta'
-    LifelogResponseData:
-      type: object
-      properties:
-        lifelog:
-          $ref: '#/components/schemas/Lifelog'
-    Lifelog:
-      type: object
-      properties:
-        id:
-          type: string
-          description: Unique identifier for the entry.
-        title:
-          type: string
-          description: Title of the entry. Equal to the first heading1 node.
-        markdown:
-          type:
-          - string
-          - 'null'
-          description: Raw markdown content of the entry.
-        contents:
-          type: array
-          items:
-            $ref: '#/components/schemas/ContentNode'
-          description: List of ContentNodes.
-        startTime:
-          type: string
-          format: date-time
-          description: ISO format in given timezone.
-        endTime:
-          type: string
-          format: date-time
-          description: ISO format in given timezone.
-        isStarred:
-          type: boolean
-          description: Whether the entry is starred. Defaults to false if not explicitly starred.
-        updatedAt:
-          type: string
-          format: date-time
-          description: Last update time of the entry in ISO format in given timezone.
-    LifelogsResponseData:
-      type: object
-      properties:
-        lifelogs:
-          type: array
-          items:
-            $ref: '#/components/schemas/Lifelog'
     LifelogResponse:
       type: object
       properties:
@@ -290,6 +237,17 @@ components:
       properties:
         lifelogs:
           $ref: '#/components/schemas/MetaLifelogs'
+    MetaLifelogs:
+      type: object
+      properties:
+        nextCursor:
+          type:
+          - string
+          - 'null'
+          description: Cursor for pagination to retrieve the next set of lifelogs, bound to the query parameters from the original request. When using a cursor, other query parameters are ignored.
+        count:
+          type: integer
+          description: Number of lifelogs in the current response.
     ContentNode:
       type: object
       properties:
@@ -330,14 +288,56 @@ components:
           description: Speaker identifier, when applicable. Set to "user" when the speaker has been identified as the user.
           enum:
           - user
-    MetaLifelogs:
+    LifelogsResponse:
       type: object
       properties:
-        nextCursor:
+        data:
+          $ref: '#/components/schemas/LifelogsResponseData'
+        meta:
+          $ref: '#/components/schemas/Meta'
+    LifelogsResponseData:
+      type: object
+      properties:
+        lifelogs:
+          type: array
+          items:
+            $ref: '#/components/schemas/Lifelog'
+    LifelogResponseData:
+      type: object
+      properties:
+        lifelog:
+          $ref: '#/components/schemas/Lifelog'
+    Lifelog:
+      type: object
+      properties:
+        id:
+          type: string
+          description: Unique identifier for the entry.
+        title:
+          type: string
+          description: Title of the entry. Equal to the first heading1 node.
+        markdown:
           type:
           - string
           - 'null'
-          description: Cursor for pagination to retrieve the next set of lifelogs, bound to the query parameters from the original request. When using a cursor, other query parameters are ignored.
-        count:
-          type: integer
-          description: Number of lifelogs in the current response.
+          description: Raw markdown content of the entry.
+        contents:
+          type: array
+          items:
+            $ref: '#/components/schemas/ContentNode'
+          description: List of ContentNodes.
+        startTime:
+          type: string
+          format: date-time
+          description: ISO format in given timezone.
+        endTime:
+          type: string
+          format: date-time
+          description: ISO format in given timezone.
+        isStarred:
+          type: boolean
+          description: Whether the entry is starred. Defaults to false if not explicitly starred.
+        updatedAt:
+          type: string
+          format: date-time
+          description: Last update time of the entry in ISO format in given timezone.
