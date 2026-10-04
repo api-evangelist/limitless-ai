@@ -150,13 +150,6 @@ paths:
       - Chats
 components:
   schemas:
-    ChatsResponseData:
-      type: object
-      properties:
-        chats:
-          type: array
-          items:
-            $ref: '#/components/schemas/Chat'
     ChatsResponse:
       type: object
       properties:
@@ -167,40 +160,38 @@ components:
           properties:
             chats:
               $ref: '#/components/schemas/MetaChats'
-    ToolResult:
+    ChatsResponseData:
       type: object
       properties:
-        result:
-          type: object
-          description: Result returned by the tool.
-        isError:
-          type: boolean
-          description: Whether the tool call resulted in an error.
-        toolCallId:
-          type: string
-          description: ID of the tool call this result corresponds to.
-        toolName:
-          type: string
-          description: Name of the tool that was called.
-        entriesReturned:
-          type:
-          - array
-          - 'null'
+        chats:
+          type: array
           items:
-            type: object
-            properties:
-              title:
-                type: string
-                description: Title of the entry returned by the tool.
-              id:
-                type: string
-                description: ID of the entry returned by the tool.
-          description: Limited information about entries returned by the tool.
-    ChatResponseData:
+            $ref: '#/components/schemas/Chat'
+    ChatResponse:
       type: object
       properties:
-        chat:
-          $ref: '#/components/schemas/Chat'
+        data:
+          $ref: '#/components/schemas/ChatResponseData'
+    MetaChats:
+      type: object
+      properties:
+        nextCursor:
+          type:
+          - string
+          - 'null'
+          description: Cursor for pagination to retrieve the next set of chats, bound to the query parameters from the original request.
+        count:
+          type: integer
+          description: Number of chats in the current response.
+    DeleteChatResponse:
+      type: object
+      properties:
+        data:
+          type: object
+          properties:
+            success:
+              type: boolean
+              description: Indicates whether the deletion was successful.
     Chat:
       type: object
       properties:
@@ -232,6 +223,40 @@ components:
           - public
           - internal
           description: Visibility setting for the chat.
+    ChatResponseData:
+      type: object
+      properties:
+        chat:
+          $ref: '#/components/schemas/Chat'
+    ToolResult:
+      type: object
+      properties:
+        result:
+          type: object
+          description: Result returned by the tool.
+        isError:
+          type: boolean
+          description: Whether the tool call resulted in an error.
+        toolCallId:
+          type: string
+          description: ID of the tool call this result corresponds to.
+        toolName:
+          type: string
+          description: Name of the tool that was called.
+        entriesReturned:
+          type:
+          - array
+          - 'null'
+          items:
+            type: object
+            properties:
+              title:
+                type: string
+                description: Title of the entry returned by the tool.
+              id:
+                type: string
+                description: ID of the entry returned by the tool.
+          description: Limited information about entries returned by the tool.
     ToolCall:
       type: object
       properties:
@@ -246,22 +271,6 @@ components:
           - object
           - 'null'
           description: Arguments passed to the tool.
-    MetaChats:
-      type: object
-      properties:
-        nextCursor:
-          type:
-          - string
-          - 'null'
-          description: Cursor for pagination to retrieve the next set of chats, bound to the query parameters from the original request.
-        count:
-          type: integer
-          description: Number of chats in the current response.
-    ChatResponse:
-      type: object
-      properties:
-        data:
-          $ref: '#/components/schemas/ChatResponseData'
     ChatMessage:
       type: object
       properties:
@@ -307,12 +316,3 @@ components:
               - string
               - 'null'
               description: Name of the user.
-    DeleteChatResponse:
-      type: object
-      properties:
-        data:
-          type: object
-          properties:
-            success:
-              type: boolean
-              description: Indicates whether the deletion was successful.
