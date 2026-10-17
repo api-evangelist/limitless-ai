@@ -150,6 +150,25 @@ paths:
       - Chats
 components:
   schemas:
+    DeleteChatResponse:
+      type: object
+      properties:
+        data:
+          type: object
+          properties:
+            success:
+              type: boolean
+              description: Indicates whether the deletion was successful.
+    ChatResponse:
+      type: object
+      properties:
+        data:
+          $ref: '#/components/schemas/ChatResponseData'
+    ChatResponseData:
+      type: object
+      properties:
+        chat:
+          $ref: '#/components/schemas/Chat'
     ChatsResponse:
       type: object
       properties:
@@ -160,18 +179,6 @@ components:
           properties:
             chats:
               $ref: '#/components/schemas/MetaChats'
-    ChatsResponseData:
-      type: object
-      properties:
-        chats:
-          type: array
-          items:
-            $ref: '#/components/schemas/Chat'
-    ChatResponse:
-      type: object
-      properties:
-        data:
-          $ref: '#/components/schemas/ChatResponseData'
     MetaChats:
       type: object
       properties:
@@ -183,15 +190,56 @@ components:
         count:
           type: integer
           description: Number of chats in the current response.
-    DeleteChatResponse:
+    ChatsResponseData:
       type: object
       properties:
-        data:
+        chats:
+          type: array
+          items:
+            $ref: '#/components/schemas/Chat'
+    ToolCall:
+      type: object
+      properties:
+        id:
+          type: string
+          description: Unique identifier for the tool call.
+        toolName:
+          type: string
+          description: Name of the tool that was called.
+        args:
+          type:
+          - object
+          - 'null'
+          description: Arguments passed to the tool.
+    ToolResult:
+      type: object
+      properties:
+        result:
           type: object
-          properties:
-            success:
-              type: boolean
-              description: Indicates whether the deletion was successful.
+          description: Result returned by the tool.
+        isError:
+          type: boolean
+          description: Whether the tool call resulted in an error.
+        toolCallId:
+          type: string
+          description: ID of the tool call this result corresponds to.
+        toolName:
+          type: string
+          description: Name of the tool that was called.
+        entriesReturned:
+          type:
+          - array
+          - 'null'
+          items:
+            type: object
+            properties:
+              title:
+                type: string
+                description: Title of the entry returned by the tool.
+              id:
+                type: string
+                description: ID of the entry returned by the tool.
+          description: Limited information about entries returned by the tool.
     Chat:
       type: object
       properties:
@@ -223,54 +271,6 @@ components:
           - public
           - internal
           description: Visibility setting for the chat.
-    ChatResponseData:
-      type: object
-      properties:
-        chat:
-          $ref: '#/components/schemas/Chat'
-    ToolResult:
-      type: object
-      properties:
-        result:
-          type: object
-          description: Result returned by the tool.
-        isError:
-          type: boolean
-          description: Whether the tool call resulted in an error.
-        toolCallId:
-          type: string
-          description: ID of the tool call this result corresponds to.
-        toolName:
-          type: string
-          description: Name of the tool that was called.
-        entriesReturned:
-          type:
-          - array
-          - 'null'
-          items:
-            type: object
-            properties:
-              title:
-                type: string
-                description: Title of the entry returned by the tool.
-              id:
-                type: string
-                description: ID of the entry returned by the tool.
-          description: Limited information about entries returned by the tool.
-    ToolCall:
-      type: object
-      properties:
-        id:
-          type: string
-          description: Unique identifier for the tool call.
-        toolName:
-          type: string
-          description: Name of the tool that was called.
-        args:
-          type:
-          - object
-          - 'null'
-          description: Arguments passed to the tool.
     ChatMessage:
       type: object
       properties:
