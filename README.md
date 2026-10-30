@@ -1,4 +1,4 @@
-# Limitless (limitless-ai)
+# Limitless
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -66,125 +66,150 @@
 
 Limitless is a personalized AI for meetings with a software assistant and the Limitless Pendant wearable that captures conversations as Lifelogs. The Limitless Developer API gives users programmatic access to their own Lifelogs, Ask AI chat history, and audio downloads, with an MCP endpoint that lets Claude and other MCP-compatible tools query Limitless memory directly. The OpenAPI spec is published and example code is hosted on GitHub.
 
-**APIs.json:** [https://raw.githubusercontent.com/api-evangelist/limitless-ai/refs/heads/main/apis.yml](https://raw.githubusercontent.com/api-evangelist/limitless-ai/refs/heads/main/apis.yml)
+**Areas:** Artificial Intelligence · Wearables · Pendant · Meeting Notes · Lifelogs · Personal AI · MCP · OpenAPI
 
-## Tags
+## Limitless on APIs.io
 
-- AI
-- Wearable
-- Pendant
-- Meeting Notes
-- Lifelogs
-- Personal AI
-- API
-- MCP
-- OpenAPI
+Everything profiled for Limitless is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/limitless-ai/](https://apis.io/providers/limitless-ai/)** — or go straight to one of the APIs or properties below.
 
-## Timestamps
+### APIs (7)
 
-- **Created:** 2026-05-23
-- **Modified:** 2026-05-23
+- [Limitless Pendant](https://apis.io/apis/limitless-ai/pendant/) — Wearable AI pendant that captures ambient audio, transcribes it, and stores it as Lifelogs in the user's Limitless account.
+- [Limitless Meeting Assistant](https://apis.io/apis/limitless-ai/meeting-assistant/) — Software assistant for meetings — transcripts, summaries, and Ask AI chat over personal memory. Available across desktop and mobile.
+- [Limitless MCP Server](https://apis.io/apis/limitless-ai/mcp-server/) — Hosted Model Context Protocol endpoint that connects Claude and other MCP-compatible clients to the user's Limitless memory.
+- [Limitless Chats API](https://apis.io/apis/limitless-ai/limitless-ai-chats-api/) — The Chats API from Limitless — 2 operation(s) for chats.
+- [Limitless Download Audio API](https://apis.io/apis/limitless-ai/limitless-ai-download-audio-api/) — The Download Audio API from Limitless — 1 operation(s) for download audio.
+- [Limitless Lifelogs API](https://apis.io/apis/limitless-ai/limitless-ai-lifelogs-api/) — The Lifelogs API from Limitless — 2 operation(s) for lifelogs.
+- [Limitless Developer API](https://apis.io/apis/limitless-ai/limitless-ai-limitless-developer-api-api/) — The Limitless Developer API API from Limitless — 1 operation(s) for limitless developer api.
 
-## APIs
+### Published properties
 
-### Limitless Pendant
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-Wearable AI pendant that captures ambient audio, transcribes it, and stores it as Lifelogs in the user's Limitless account.
+#### MCP servers (1)
 
-- **Human URL:** [https://www.limitless.ai/](https://www.limitless.ai/)
-- **Base URL:** `https://www.limitless.ai`
+Model Context Protocol servers that expose the API to agents.
 
-#### Tags
+- [limitless](https://apis.io/servers/limitless-ai/limitless/)
 
-- Hardware
-- Wearable
-- Pendant
-- Lifelogs
+#### Agentic access (1)
 
-#### Properties
+Which operations an agent can call, which act, and which need a human in the loop.
 
-- [Product Page](https://www.limitless.ai/)
-- [Postman Collection](collections/limitless-ai.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/limitless-ai.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [Limitless Ai Agentic Access](https://apis.io/agentic-access/limitless-ai/limitless-ai-agentic-access/)
 
-### Limitless Meeting Assistant
+#### Collections (5)
 
-Software assistant for meetings — transcripts, summaries, and Ask AI chat over personal memory. Available across desktop and mobile.
+Postman and Open Collection request collections.
 
-- **Human URL:** [https://www.limitless.ai/](https://www.limitless.ai/)
-- **Base URL:** `https://www.limitless.ai`
+- [Limitless Developer API](https://apis.io/collections/limitless-ai/open-limitless-ai/)
+- [Limitless Developer Chats API](https://apis.io/collections/limitless-ai/open-limitless-ai-chats-api/)
+- [Limitless Developer Chats Download Audio API](https://apis.io/collections/limitless-ai/open-limitless-ai-download-audio-api/)
+- [Limitless Developer Chats Lifelogs API](https://apis.io/collections/limitless-ai/open-limitless-ai-lifelogs-api/)
+- [Limitless Developer Chats Limitless Developer API API](https://apis.io/collections/limitless-ai/open-limitless-ai-limitless-developer-api-api/)
 
-#### Tags
+#### Overlays (1)
 
-- Meetings
-- Assistant
-- Transcripts
-- Ask AI
+OpenAPI overlays, including conversational phrasing for each operation.
 
-#### Properties
+- [Limitless Ai Developer Overlay](https://apis.io/overlays/limitless-ai/limitless-ai-developer-overlay/)
 
-- [Product Page](https://www.limitless.ai/)
-- [Postman Collection](collections/limitless-ai.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/limitless-ai.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+#### Security (2)
 
-### Limitless Developer API
+Authentication, trust centre, and vulnerability disclosure.
 
-REST API at https://api.limitless.ai/v1 for the authenticated user's Lifelogs and Ask AI chat history. Authentication is the `X-API-Key` header with a key generated in Developer settings. Endpoints include GET /lifelogs (search, sort, paginate), GET /lifelogs/{id}, DELETE /lifelogs/{id}, GET /download-audio (Ogg Opus, max 2-hour duration), GET /chats, GET /chats/{id}, and DELETE /chats/{id}. Rate limit is 180 requests per minute per API key. OpenAPI spec is published at /openapi.yml and example code lives on GitHub.
+- [Limitless Ai Authentication](https://apis.io/security/limitless-ai/limitless-ai-authentication/)
+- [Limitless Ai Domain Security](https://apis.io/security/limitless-ai/limitless-ai-domain-security/)
 
-- **Human URL:** [https://www.limitless.ai/developers](https://www.limitless.ai/developers)
-- **Base URL:** `https://api.limitless.ai/v1`
+#### OAuth scopes (1)
 
-#### Tags
+The permissions the API asks for.
 
-- REST
-- API Key
-- Lifelogs
-- Audio
-- Chats
-- OpenAPI
+- [Limitless Ai Scopes](https://apis.io/scopes/limitless-ai/limitless-ai-scopes/)
 
-#### Properties
+#### Plans and pricing (1)
 
-- [Documentation](https://www.limitless.ai/developers)
-- [OpenAPI](https://api.limitless.ai/v1/openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Examples](https://github.com/limitless-ai-inc/limitless-api-examples)
-- [Git Hub Org](https://github.com/limitless-ai-inc)
-- [Postman Collection](collections/limitless-ai.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/limitless-ai.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+Published plans, tiers and prices.
 
-### Limitless MCP Server
+- [Limitless Ai Plans Pricing](https://apis.io/plans/limitless-ai/limitless-ai-plans-pricing/)
 
-Hosted Model Context Protocol endpoint that connects Claude and other MCP-compatible clients to the user's Limitless memory.
+#### Rate limits (1)
 
-- **Human URL:** [https://www.limitless.ai/developers](https://www.limitless.ai/developers)
-- **Base URL:** `https://api.limitless.ai/mcp`
+Published request limits.
 
-#### Tags
+- [Limitless Ai Rate Limits](https://apis.io/rate-limits/limitless-ai/limitless-ai-rate-limits/)
 
-- MCP
-- Model Context Protocol
-- Claude
-- Memory
+#### FinOps (1)
 
-#### Properties
+What the API costs to run, by operation.
 
-- [Documentation](https://www.limitless.ai/developers)
-- [Endpoint](https://api.limitless.ai/mcp)
-- [Postman Collection](collections/limitless-ai.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/limitless-ai.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [Limitless Ai Finops](https://apis.io/finops/limitless-ai/limitless-ai-finops/)
 
-## Common Properties
+## Where to find this API
 
-- [LinkedIn](https://www.linkedin.com/company/limitless-ai)
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
 - [Website](https://www.limitless.ai/)
-- [Developers](https://www.limitless.ai/developers)
-- [Git Hub](https://github.com/limitless-ai-inc)
-- [OpenAPI](https://api.limitless.ai/v1/openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Plans](plans/limitless-ai-plans-pricing.yml)
-- [Rate Limits](rate-limits/limitless-ai-rate-limits.yml)
-- [Fin Ops](finops/limitless-ai-finops.yml)
+- [Documentation](https://www.limitless.ai/developers)
+- [Getting started](https://www.limitless.ai/developers#setup)
+- [API reference](https://www.limitless.ai/developers#endpoints)
+- [Sign up](https://app.limitless.ai)
+- [Support](https://www.limitless.ai/support)
+- [Terms of service](https://www.limitless.ai/terms)
+- [Privacy policy](https://www.limitless.ai/privacy-policy)
+- [GitHub](https://github.com/limitless-ai-inc)
 
-## Maintainers
+## API Evangelist rating
 
-**FN:** Kin Lane
-**Email:** kin@apievangelist.com
+**Kin Score 39.5** — developing · rubric 0.25.0 · scored 2026-10-23
+
+| Facet | Score |
+|---|---|
+| Discoverability | 66.7 |
+| Contract quality | 44.5 |
+| Contract governance | 4.5 |
+| Operational transparency | 15.8 |
+| Developer ergonomics | 56.5 |
+| Access clarity | 26.3 |
+
+**Agent readiness 30.9** — agent-ready
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | — |
+| MCP Server | verified |
+| Auth Clarity | bearer (partial credit) |
+| Idempotency | — |
+| Error Semantics | derived (partial credit) |
+| OpenAPI Examples | documented (partial credit) |
+| Rate Limit Signal | derived (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | derived (partial credit) |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+| Pagination Ratio | na |
+| Operation Distinctiveness | distinct |
+
+**Regulatory alignment 31.8** — Horizontal (data, software, accessibility, platform)
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/limitless-ai/](https://apis.io/providers/limitless-ai/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Limitless: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/limitless-ai/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
